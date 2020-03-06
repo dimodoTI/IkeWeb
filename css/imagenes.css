@@ -1,0 +1,28 @@
+
+html{
+    --fondo-institucional: url('../assets/images/fondoWeb.jpg');
+    --fondo-productos: url('../assets/images/fondoWeb.jpg');
+    
+    --fondo-hogar:url('../assets/images/hogar.jpg');
+    --fondo-vial:url('../assets/images/vial.jpg');
+    --fondo-mascotas:url('../assets/images/mascotas.jpg');
+    --fondo-tecnologico:url('../assets/images/tecnologico.jpg');
+    --fondo-bicicletas:url('../assets/images/bicicletas.jpg');
+
+    --fondo-hogarinfo:url('../assets/images/hogarInfo.jpg');
+    --fondo-vialinfo:url('../assets/images/vialInfo.jpg');
+    --fondo-mascotasinfo:url('../assets/images/mascotasInfo.jpg');
+    --fondo-tecnologicoinfo:url('../assets/images/tecnologicoInfo.jpg');
+    --fondo-bicicletasinfo:url('../assets/images/bicicletasInfo.jpg');
+
+    --fondo-atencion:url('../assets/images/atencion.jpg');
+
+
+ }
+    
+
+
+
+
+
+
