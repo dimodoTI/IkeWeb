@@ -108,7 +108,7 @@ export class submenuProductos extends connect(store, OPCION_SELECCIONADA)(LitEle
 
     stateChanged(state, name) {
         if (name == OPCION_SELECCIONADA) {
-            this.oculto = state.ui.opcionSeleccionada.option != "PRODUCTOS"
+            this.oculto = state.ui.opcionSeleccionada.option != "PRODUCTOS" || state.ui.opcionSeleccionada.suboption != ""
         }
     }
 

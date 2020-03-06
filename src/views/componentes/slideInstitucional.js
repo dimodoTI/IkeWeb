@@ -21,6 +21,10 @@ import {
 import {
     IKEASISTENCIA
 } from "../../../assets/icons/icons"
+import {
+    selectMenu,
+    selectSubmenu
+} from "../../redux/actions/ui";
 
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
 
@@ -52,12 +56,18 @@ export class slideInstitucional extends connect(store, OPCION_SELECCIONADA)(LitE
                 <div class="tituloInstitucional">
                     ESTAMOS EN TU VIDA<br>PARA APOYARTE
                 </div>
-                <div class="masinfo">Mas Información</div>
-                <div class="logoBottom">
-                    ${IKEASISTENCIA}
-                </div>
+                <div class="masinfo" @click="${this.masInfo}">Mas Información</div>
             </div>
+            <div class="logoBottom">
+                    ${IKEASISTENCIA}
+                </div>            
         `
+    }
+
+    masInfo() {
+
+        store.dispatch(selectMenu("PRODUCTOS"))
+        store.dispatch(selectSubmenu("HOGAR"))
     }
 
     stateChanged(state, name) {

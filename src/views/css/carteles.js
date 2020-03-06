@@ -85,4 +85,18 @@ export const carteles = css `
             bottom: 4rem;
             right: 3rem;
         }
+
+        .logoBottom svg {
+            height: 52px;
+            width: 52px;
+            fill: white;
+            stroke: white;
+        }
+        .conocerMas {
+            color: #ff6c0c;
+            font-weight: bolder;
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding-left: 3rem;
+        }
 `

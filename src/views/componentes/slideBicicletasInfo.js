@@ -13,6 +13,10 @@ import {
     carteles
 } from "../css/carteles"
 
+import {
+    IKEASISTENCIA
+}
+from "../../../assets/icons/icons"
 
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
 
@@ -55,7 +59,9 @@ export class slideBicicletasInfo extends connect(store, OPCION_SELECCIONADA)(Lit
             <li> Traslados de Bicicleta ante imposibilidad de arreglarla</li>
         </ul>           
     </div>
-
+    <div class="logoBottom">
+                    ${IKEASISTENCIA}
+                </div>      
         `
     }
 

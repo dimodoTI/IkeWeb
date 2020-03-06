@@ -17,6 +17,10 @@ import {
     masInfo
 } from "../../redux/actions/ui"
 
+import {
+    IKEASISTENCIA
+}
+from "../../../assets/icons/icons"
 
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
 
@@ -59,7 +63,9 @@ export class slideMascotas extends connect(store, OPCION_SELECCIONADA)(LitElemen
             </div>
             <div class="masinfo" @click="${this.masInfo}">Mas Información</div>
         </div>
-
+        <div class="logoBottom">
+            ${IKEASISTENCIA}
+        </div>      
         `
     }
     masInfo(e) {

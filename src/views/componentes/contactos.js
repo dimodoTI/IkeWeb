@@ -28,7 +28,9 @@ import {
     FORMULARIO,
     MICOBERTURA,
     FACTURA,
-    PREGUNTAS
+    PREGUNTAS,
+    PREGUNTASWHITE,
+    FACTURAWHITE
 } from "../../../assets/icons/icons"
 
 
@@ -45,8 +47,9 @@ export class appContactos extends connect(store)(LitElement) {
             display:grid;
             grid-template-areas:    "whatsapp formulario"
                                     "cobertura nada"
+                                    "preguntas factura"
                                     ;
-            grid-template-rows: 8rem 8rem;
+            grid-template-rows: 8rem 8rem 5rem;
             grid-template-columns: 20rem 20rem ;
             grid-gap:.6rem;
             
@@ -102,10 +105,22 @@ export class appContactos extends connect(store)(LitElement) {
             width:3rem;
             height:3rem
         }
+        .preguntasfrecuentes{
+            justify-self:left;
+            padding:1rem;
+            display:grid;
+            grid-auto-flow:columns;
+            grid-template-columns:auto 1fr ;
+            grid-gap:1rem  ;         
+            font-size:.7rem;
+            
+        }
 
-
-
-
+        .preguntascolumnas{
+            display:grid;
+            grid-auto-flow:column;
+            cursor:pointer
+        }
         `
     }
 
@@ -117,6 +132,8 @@ export class appContactos extends connect(store)(LitElement) {
                 <div></div>
                 <div class="subdescri"><div style="font-size:.8rem">Inicia un chat al</div><div style="color:var(--color-boton);font-size:.9rem;font-weight:bold">+54 9 11-3442-7999</div></div>
             </div>
+
+
             <div class="formulario tarjeta" @click="${this.selectMenu}" .value="${"FORMULARIOINFO"}">
                 <div class="icono">${FORMULARIO}</div>
                 <div class="descri" style="padding-top:.5rem">COMPLETANDO EL FORMULARIO</div>
@@ -124,10 +141,28 @@ export class appContactos extends connect(store)(LitElement) {
                 <div class="subdescri">Un asesor se comunicara para responder todas las dudas</div>
             </div>
 
-            <div class="cobertura tarjeta" @click="${this.selectMenu}" .value="${"COBERTURAINFO"}">
+            <div class="cobertura tarjeta" @click="${this.redireccionCob}" .value="${"COBERTURAINFO"}">
                 <div class="icono">${MICOBERTURA}</div>
-                <div class="descri" style="padding-top:.5rem">CONOCER<BR>MI COBERTURA</div>
+                <div class="descri" style="padding-top:.5rem">¿CUÁL ES<BR>MI COBERTURA?</div>
             </div>
+
+            <div class="preguntas preguntascolumnas" @click="${this.selectMenu}" .value="${"PREGUNTASINFO"}">
+                <div class="preguntasfrecuentes">
+                    <div>${PREGUNTASWHITE}</div>
+                    <div style="color:white">PREGUNTAS<BR>FRECUENTES</div>
+                </div>
+            </div>
+            <div class="factura preguntascolumnas"  @click="${this.redireccionFac}" .value="${"FACTURASINFO"}">
+                <div class="preguntasfrecuentes ">
+                    <div>
+                        ${FACTURAWHITE}
+                    </div>
+                    <div style="color:white">
+                        DESCARGAR<br>MI FACTURA
+                    </div>
+                </div>
+            </div>
+
 
         `
     }
@@ -139,6 +174,15 @@ export class appContactos extends connect(store)(LitElement) {
         });
         e.currentTarget.classList.add("seleccionado")
         store.dispatch(selectMenu(e.currentTarget.value))
+    }
+
+
+    redireccionCob() {
+        window.open("http://www.atencionike.com.ar/")
+    }
+
+    redireccionFac() {
+        window.open("http://mifactura.ikeasistencia.com")
     }
 
     stateChanged(state, name) {

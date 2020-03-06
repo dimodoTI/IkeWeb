@@ -13,6 +13,10 @@ import {
     carteles
 } from "../css/carteles"
 
+import {
+    IKEASISTENCIA
+}
+from "../../../assets/icons/icons"
 
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
 
@@ -55,12 +59,16 @@ export class slideMascotasInfo extends connect(store, OPCION_SELECCIONADA)(LitEl
             <li> Análisis clínicos</lI>
             <li> Guardería</lI>
             <li> Castración    </lI>        
-        </ul>
-
-            
+        </ul>    
         </div>
-        
+        <div class="conocerMas" @click="${this.conocerMas}">CONOCÉ MAS DEL SERVICIO</div>
+        <div class="logoBottom">
+            ${IKEASISTENCIA}
+        </div>              
         `
+    }
+    conocerMas() {
+        window.open("https://www.ikeasistencia.contactese.com/mascotas/")
     }
 
     stateChanged(state, name) {}

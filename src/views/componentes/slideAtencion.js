@@ -22,8 +22,7 @@ import {
 } from "../../redux/actions/ui"
 import {
     PHONE24,
-    PREGUNTASWHITE,
-    FACTURAWHITE
+    IKEASISTENCIA
 }
 from "../../../assets/icons/icons"
 
@@ -79,7 +78,7 @@ export class slideAtencion extends connect(store, OPCION_SELECCIONADA)(LitElemen
             height:3rem;
             width:3rem;
         }
-        .preguntasfrecuentes{
+        /* .preguntasfrecuentes{
             justify-self:left;
             padding:1rem;
             display:grid;
@@ -95,8 +94,9 @@ export class slideAtencion extends connect(store, OPCION_SELECCIONADA)(LitElemen
             grid-auto-flow:column;
             grid-gap:1rem;
             cursor:pointer
-        }
+        } */
         `
+
     }
 
     render() {
@@ -116,25 +116,9 @@ export class slideAtencion extends connect(store, OPCION_SELECCIONADA)(LitElemen
             </div>
             <div class="titulo">POR ATENCIÓN AL CLIENTE CONTACTANOS:</div>
             <app-contactos id="contactos"></app-contactos>
-            <div class="preguntasfrecuentes">
-                <div class="preguntascolumnas">
-                <div>
-                    ${PREGUNTASWHITE}
-                </div>
-                <div style="color:white">
-                    PREGUNTAS <br>FRECUENTES
-                </div>
-                </div>
-                <div class="preguntascolumnas">
-                <div>
-                    ${FACTURAWHITE}
-                </div>
-                <div style="color:white">
-                    DESCARGAR<br>MI FACTURA
-                </div>
-                </div>
-            </div>
         </div>
+        <div class="logoBottom">${IKEASISTENCIA}</div>
+
         `
     }
 

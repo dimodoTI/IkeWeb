@@ -73,7 +73,7 @@ export class appMenu extends connect(store)(LitElement) {
     render() {
         return html `
             <div class="boton" @click="${this.selectMenu}" .value="${"INSTITUCIONAL"}" >${IKE}</div>
-            <div class="boton " @click="${this.selectMenu}" .value="${"INSTITUCIONAL"}">
+            <div class="boton " @click="${this.presentacion}" .value="${"INSTITUCIONAL"}">
                 <div>Institucional</div>
             </div>
             <div class="boton" @click="${this.selectMenu}" .value="${"PRODUCTOS"}">
@@ -86,7 +86,7 @@ export class appMenu extends connect(store)(LitElement) {
             <div class="boton"  @click="${this.selectMenu}" .value="${"SUMARTE"}">
                 <div>¿Querés sumarte a Iké?</div>
             </div>
-            <div class="boton" @click="${this.selectMenu}" .value="${"CONTACTANOS"}">
+            <div class="boton" @click="${this.selectMenu}" .value="${"FORMULARIOINFO"}">
                 <div>Contactanos</div>
             </div>
 
@@ -106,6 +106,11 @@ export class appMenu extends connect(store)(LitElement) {
         });
         e.currentTarget.classList.add("seleccionado")
         store.dispatch(selectMenu(e.currentTarget.value))
+    }
+
+    presentacion(e) {
+        window.open("http://iqe.zul.com.ar/Web/Pdf/Presentacion.pdf", "Presentacion")
+        this.selectMenu(e)
     }
 
 

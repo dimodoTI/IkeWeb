@@ -65,6 +65,11 @@ import {
 } from "../componentes/slideAtencion"
 
 import {
+    slideformularioInfo
+} from "../componentes/slideFormularioInfo"
+
+
+import {
     slideCobertura
 } from "../componentes/slideCobertura"
 
@@ -107,7 +112,8 @@ export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
         :host(:not([currentslide="PRODUCTOSTECNOLOGICOINFO"])) #tecnologicoinfo,
         :host(:not([currentslide="PRODUCTOSBICICLETASINFO"])) #bicicletasinfo,
         :host(:not([currentslide="ATENCION_CLIENTE"])) #atencion,
-        :host(:not([currentslide="COBERTURAINFO"])) #coberturainfo{
+        :host(:not([currentslide="COBERTURAINFO"])) #coberturainfo,
+        :host(:not([currentslide="FORMULARIOINFO"])) #formularioinfo{
             opacity:0;
             z-index:-10
         }           
@@ -135,7 +141,7 @@ export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
         <slide-institucional class="slide" id="institucional"></slide-institucional>
         <!-- productos -->
         <slide-productos class="slide" id="productos"></slide-productos>
-        <slide-multiasistencia class="slide" id="multiasistencia"></slide-multiasistencia>
+        
 
         <slide-hogar class="slide" id="hogar"></slide-hogar>
         <slide-hogar-info class="slide" id="hogarinfo"></slide-hogar-info>
@@ -156,7 +162,7 @@ export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
         <slide-atencion class="slide" id="atencion"></slide-atencion>
 
         <slide-cobertura class="slide" id="coberturainfo"></slide-cobertura>
-
+        <slide-formulario-info class="slide" id="formularioinfo"></slide-formulario-info>
         `
     }
 

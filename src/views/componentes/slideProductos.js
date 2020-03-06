@@ -10,7 +10,14 @@ import {
     store
 } from "../../redux/store";
 
+import {
+    carteles
+} from "../css/carteles"
 
+import {
+    IKEASISTENCIA
+}
+from "../../../assets/icons/icons"
 
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
 
@@ -25,6 +32,7 @@ export class slideProductos extends connect(store, OPCION_SELECCIONADA)(LitEleme
 
     static get styles() {
         return css `
+        ${carteles}
    
         :host{
             display:grid;
@@ -38,7 +46,9 @@ export class slideProductos extends connect(store, OPCION_SELECCIONADA)(LitEleme
     }
     render() {
         return html `
-        
+        <div class="logoBottom">
+            ${IKEASISTENCIA}
+        </div>              
         `
     }
 

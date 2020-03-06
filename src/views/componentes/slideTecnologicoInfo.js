@@ -13,6 +13,9 @@ import {
     carteles
 } from "../css/carteles"
 
+import {
+    IKEASISTENCIA
+} from "../../../assets/icons/icons"
 
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
 
@@ -54,7 +57,9 @@ export class slideTecnologicoInfo extends connect(store, OPCION_SELECCIONADA)(Li
 
             
         </div>
-        
+        <div class="logoBottom">
+            ${IKEASISTENCIA}
+        </div>              
         `
     }
 

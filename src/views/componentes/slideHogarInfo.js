@@ -13,6 +13,10 @@ import {
     carteles
 } from "../css/carteles"
 
+import {
+    IKEASISTENCIA
+}
+from "../../../assets/icons/icons"
 
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
 
@@ -64,8 +68,15 @@ export class slideHogarInfo extends connect(store, OPCION_SELECCIONADA)(LitEleme
 
             
         </div>
-        
+        <div class="conocerMas" @click="${this.conocerMas}">CONOCÉ MAS DEL SERVICIO</div>
+        <div class="logoBottom">
+            ${IKEASISTENCIA}
+        </div>              
         `
+    }
+
+    conocerMas() {
+        window.open("http://ikeargentina.com.ar/modulares/")
     }
 
     stateChanged(state, name) {}
