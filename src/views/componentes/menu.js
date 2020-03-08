@@ -84,10 +84,10 @@ export class appMenu extends connect(store)(LitElement) {
                 <div>Atención al Cliente</div>
             </div>
             <div class="boton"  @click="${this.selectMenu}" .value="${"SUMARTE"}">
-                <div>¿Querés sumarte a Iké?</div>
+                <div>¿Querés sumarte al equipo Iké?</div>
             </div>
             <div class="boton" @click="${this.selectMenu}" .value="${"FORMULARIOINFO"}">
-                <div>Contactanos</div>
+                <div>¿No sos cliente? Contactanos</div>
             </div>
 
             <div class="boton"  @click="${this.selectMenu}" .value="${"BUSQUEDA"}">

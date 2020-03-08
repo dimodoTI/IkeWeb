@@ -61,7 +61,7 @@ export class slideMascotasInfo extends connect(store, OPCION_SELECCIONADA)(LitEl
             <li> Castración    </lI>        
         </ul>    
         </div>
-        <div class="conocerMas" @click="${this.conocerMas}">CONOCÉ MAS DEL SERVICIO</div>
+        <div class="conocerMas" @click="${this.conocerMas}">CONTRATÁ </div>
         <div class="logoBottom">
             ${IKEASISTENCIA}
         </div>              

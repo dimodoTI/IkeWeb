@@ -68,7 +68,7 @@ export class slideHogarInfo extends connect(store, OPCION_SELECCIONADA)(LitEleme
 
             
         </div>
-        <div class="conocerMas" @click="${this.conocerMas}">CONOCÉ MAS DEL SERVICIO</div>
+        <div class="conocerMas" @click="${this.conocerMas}">CONTRATÁ</div>
         <div class="logoBottom">
             ${IKEASISTENCIA}
         </div>              

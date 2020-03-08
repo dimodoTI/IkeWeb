@@ -95,7 +95,7 @@ export const carteles = css `
         .conocerMas {
             color: #ff6c0c;
             font-weight: bolder;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             cursor: pointer;
             padding-left: 3rem;
         }

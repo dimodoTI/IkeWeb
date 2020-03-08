@@ -59,12 +59,15 @@ export class slideBicicletasInfo extends connect(store, OPCION_SELECCIONADA)(Lit
             <li> Traslados de Bicicleta ante imposibilidad de arreglarla</li>
         </ul>           
     </div>
+    <div class="conocerMas" @click="${this.conocerMas}">CONTRATÁ</div>
     <div class="logoBottom">
                     ${IKEASISTENCIA}
                 </div>      
         `
     }
-
+    conocerMas() {
+        window.open("https://ikeasistencia.contactese.com/bicicletas/")
+    }
     stateChanged(state, name) {}
 
     static get properties() {
