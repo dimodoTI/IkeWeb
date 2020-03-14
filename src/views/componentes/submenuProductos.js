@@ -70,6 +70,7 @@ export class submenuProductos extends connect(store, OPCION_SELECCIONADA)(LitEle
         }
         `
     }
+
     render() {
         return html `
 
