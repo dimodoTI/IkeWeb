@@ -5,6 +5,9 @@ export const HIDE_ERROR = "[ui] hide error";
 export const SELECT_MENU = "[ui] seelct menu";
 export const SELECT_SUBMENU = "[ui] selct submenu";
 export const MAS_INFO = "[ui] selct masInfo";
+export const CAPTURE_MEDIA = "[ui] capture media"
+export const SET_MEDIA = "[ui] set media"
+
 
 
 export const showSpinner = () => ({
@@ -33,4 +36,14 @@ export const selectSubmenu = (option) => ({
 export const masInfo = (option) => ({
   type: MAS_INFO,
   option: option
+});
+
+export const captureMedia = () => ({
+  type: CAPTURE_MEDIA
+
+});
+export const setMedia = (size) => ({
+  type: SET_MEDIA,
+  size: size
+
 });

@@ -27,8 +27,8 @@ import {
 } from "../../redux/actions/ui";
 
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
-
-export class slideInstitucional extends connect(store, OPCION_SELECCIONADA)(LitElement) {
+const MEDIA_SIZE = "ui.media.timeStamp"
+export class slideInstitucional extends connect(store, OPCION_SELECCIONADA, MEDIA_SIZE)(LitElement) {
     constructor() {
         super();
         this.oculto = true
@@ -43,10 +43,13 @@ export class slideInstitucional extends connect(store, OPCION_SELECCIONADA)(LitE
             background-image:var(--fondo-institucional);
             background-size: 100vw 100vh;
             background-position: center;
+            background-size: cover;
             height:100%;
             width:100%;
-            
+        }
 
+        :host([media-size="small"]){
+            background-image:var(--fondo-institucionalphone);
         }
         `
     }
@@ -71,11 +74,21 @@ export class slideInstitucional extends connect(store, OPCION_SELECCIONADA)(LitE
     }
 
     stateChanged(state, name) {
+        if (name == MEDIA_SIZE) {
+            this.mediaSize = state.ui.media.size
+            this.update()
+        }
+
 
     }
 
     static get properties() {
         return {
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            }
 
         }
 

@@ -5,7 +5,8 @@ import {
     HIDE_ERROR,
     SELECT_MENU,
     SELECT_SUBMENU,
-    MAS_INFO
+    MAS_INFO,
+    SET_MEDIA
 } from "../actions/ui";
 
 const initialState = {
@@ -18,7 +19,12 @@ const initialState = {
         suboption: "",
         masInfo: "",
         currentSlide: ""
-    }
+    },
+    media: {
+        size: "large",
+        timeStamp: null
+    },
+
 };
 
 export const reducer = (state = initialState, action) => {
@@ -56,6 +62,11 @@ export const reducer = (state = initialState, action) => {
             newState.opcionSeleccionada.timeStamp = (new Date()).getTime()
             newState.opcionSeleccionada.masInfo = "INFO"
             break;
+        case SET_MEDIA:
+            newState.media.size = action.size
+            newState.media.timeStamp = (new Date()).getTime()
+            break;
+
     }
     return newState;
 };

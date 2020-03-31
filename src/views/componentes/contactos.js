@@ -126,7 +126,7 @@ export class appContactos extends connect(store)(LitElement) {
 
     render() {
         return html `
-            <div class="whatsapp tarjeta" @click="${this.selectMenu}" .value="${"WHATSAPPINFO"}">
+            <div class="whatsapp tarjeta" @click="${this.whatsapp}" .value="${"WHATSAPPINFO"}">
                 <div class="icono">${WHATSAPP}</div>
                 <div class="descri">POR WHATSAPP</div>
                 <div></div>
@@ -174,6 +174,11 @@ export class appContactos extends connect(store)(LitElement) {
         });
         e.currentTarget.classList.add("seleccionado")
         store.dispatch(selectMenu(e.currentTarget.value))
+    }
+
+    whatsapp() {
+        //window.open("https://api.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
+        window.open("https://api.whatsapp.com/send?phone=5491149707394&text=&source=&data=")
     }
 
 

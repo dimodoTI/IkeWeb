@@ -25,8 +25,9 @@ import {
 } from "../views/componentes/slider"
 
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
+const MEDIA_SIZE = "ui.media.timeStamp"
 
-export class viewManager extends connect(store, OPCION_SELECCIONADA)(LitElement) {
+export class viewManager extends connect(store, OPCION_SELECCIONADA, MEDIA_SIZE)(LitElement) {
     constructor() {
         super();
         this.option = ""
@@ -82,6 +83,12 @@ export class viewManager extends connect(store, OPCION_SELECCIONADA)(LitElement)
             this.option = state.ui.opcionSeleccionada.suboption
             this.update()
         }
+
+        if (name == MEDIA_SIZE) {
+            this.mediaSize = state.ui.media.size
+            this.update()
+        }
+
     }
 
     static get properties() {
@@ -89,6 +96,11 @@ export class viewManager extends connect(store, OPCION_SELECCIONADA)(LitElement)
             option: {
                 type: String,
                 reflect: true
+            },
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
             }
 
         }

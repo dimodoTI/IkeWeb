@@ -1,6 +1,8 @@
 
 html{
     --fondo-institucional: url('../assets/images/fondoWeb.jpg');
+    --fondo-institucionalphone: url('../assets/images/homephone.jpg');
+
     --fondo-productos: url('../assets/images/fondoWeb.jpg');
     
     --fondo-hogar:url('../assets/images/hogar.jpg');
@@ -22,6 +24,9 @@ html{
 
  }
     
+
+ 
+
 
 
 
