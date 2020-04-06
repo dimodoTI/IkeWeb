@@ -13,17 +13,7 @@ export const carteles = css `
             margin-left: 3rem;
             gap: 1rem;
             padding: 0.5rem;
-            padding-bottom:.5rem;
         }
-
-        .cartel[media-size="small"]{
-            align-self: flex-start;
-            justify-self: center;
-            padding-top:1rem;
-            
-        }
-
-      
         
         .titulo{
             font-size:1.1rem;
@@ -46,10 +36,6 @@ export const carteles = css `
             font-weight:normal;             
         }
 
-        .leyenda[media-size="small"]{
-            font-size:1.2rem;
-            align-self:flex-start
-        }
         .masinfo{
             color:var(--color-boton);
             font-weight:bolder;
@@ -78,7 +64,6 @@ export const carteles = css `
          ul li{
             font-size:.8rem;
             padding:.32rem;
-            font-weight:bold
          }
            
          ul li::before {

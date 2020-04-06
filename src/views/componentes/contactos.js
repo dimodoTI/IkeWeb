@@ -121,7 +121,6 @@ export class appContactos extends connect(store)(LitElement) {
             grid-auto-flow:column;
             cursor:pointer
         }
-
         `
     }
 
@@ -178,8 +177,8 @@ export class appContactos extends connect(store)(LitElement) {
     }
 
     whatsapp() {
-        window.open("https://api.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
-        //window.open("https://api.whatsapp.com/send?phone=5491149707394&text=&source=&data=")
+        //window.open("https://api.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
+        window.open("https://api.whatsapp.com/send?phone=5491149707394&text=&source=&data=")
     }
 
 
@@ -197,11 +196,7 @@ export class appContactos extends connect(store)(LitElement) {
 
     static get properties() {
         return {
-            mediaSize: {
-                type: String,
-                reflect: true,
-                attribute: "media-size"
-            }
+
         }
     }
 }

@@ -7,7 +7,6 @@ export const SELECT_SUBMENU = "[ui] selct submenu";
 export const MAS_INFO = "[ui] selct masInfo";
 export const CAPTURE_MEDIA = "[ui] capture media"
 export const SET_MEDIA = "[ui] set media"
-export const TOGGLE_MENU = "[ui] toggleMenu"
 
 
 
@@ -46,11 +45,5 @@ export const captureMedia = () => ({
 export const setMedia = (size) => ({
   type: SET_MEDIA,
   size: size
-
-});
-
-export const toggleMenu = (size) => ({
-  type: TOGGLE_MENU
-
 
 });

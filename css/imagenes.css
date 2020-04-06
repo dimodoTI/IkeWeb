@@ -1,46 +1,35 @@
-html {
+
+html{
     --fondo-institucional: url('../assets/images/fondoWeb.jpg');
     --fondo-institucionalphone: url('../assets/images/homephone.jpg');
 
     --fondo-productos: url('../assets/images/fondoWeb.jpg');
-    --fondo-productosphone: url('../assets/images/homephone.jpg');
+    
+    --fondo-hogar:url('../assets/images/hogar.jpg');
+    --fondo-vial:url('../assets/images/vial.jpg');
+    --fondo-mascotas:url('../assets/images/mascotas.jpg');
+    --fondo-tecnologico:url('../assets/images/tecnologico.jpg');
+    --fondo-bicicletas:url('../assets/images/bicicletas.jpg');
 
-    --fondo-hogar: url('../assets/images/hogar.jpg');
-    --fondo-hogarphone: url('../assets/images/hogarphone.jpg');
+    --fondo-hogarinfo:url('../assets/images/hogarInfo.jpg');
+    --fondo-vialinfo:url('../assets/images/vialInfo.jpg');
+    --fondo-mascotasinfo:url('../assets/images/mascotasInfo.jpg');
+    --fondo-tecnologicoinfo:url('../assets/images/tecnologicoInfo.jpg');
+    --fondo-bicicletasinfo:url('../assets/images/bicicletasInfo.jpg');
 
-    --fondo-vial: url('../assets/images/vial.jpg');
-    --fondo-vialphone: url('../assets/images/vialphone.jpg');
-
-    --fondo-mascotas: url('../assets/images/mascotas.jpg');
-    --fondo-mascotasphone: url('../assets/images/mascotaphone.jpg');
-
-    --fondo-tecnologico: url('../assets/images/tecnologico.jpg');
-    --fondo-tecnologicophone: url('../assets/images/tecnologicophone.jpg');
-
-    --fondo-bicicletas: url('../assets/images/bicicletas.jpg');
-    --fondo-bicicletasphone: url('../assets/images/bicicletasphone.jpg');
-
-    --fondo-hogarinfo: url('../assets/images/hogarInfo.jpg');
-    --fondo-hogarinfophone: url('../assets/images/hogarInfophone.jpg');
-
-    --fondo-vialinfo: url('../assets/images/vialInfo.jpg');
-    --fondo-vialinfophone: url('../assets/images/vialInfophone.jpg');
-
-    --fondo-mascotasinfo: url('../assets/images/mascotasInfo.jpg');
-    --fondo-mascotasinfophone: url('../assets/images/mascotaInfophone.jpg');
-
-    --fondo-tecnologicoinfo: url('../assets/images/tecnologicoInfo.jpg');
-    --fondo-tecnologicoinfophone: url('../assets/images/tecnologicoInfophone.jpg');
-
-    --fondo-bicicletasinfo: url('../assets/images/bicicletasInfo.jpg');
-    --fondo-bicicletasinfophone: url('../assets/images/bicicletasInfophone.jpg');
-
-    --fondo-atencion: url('../assets/images/atencion.jpg');
-    --fondo-atencionphone: url('../assets/images/atencionphone.jpg');
-
-    --fondo-formulario: url('../assets/images/formulario.jpg');
-    --fondo-formulariophone: url('../assets/images/formulariophone.jpg');
+    --fondo-atencion:url('../assets/images/atencion.jpg');
+    --fondo-formulario:url('../assets/images/formulario.jpg');
 
 
 
-}
+ }
+    
+
+ 
+
+
+
+
+
+
+

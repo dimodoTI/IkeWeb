@@ -15,14 +15,12 @@ import {
 } from "../css/boton"
 
 import {
-    selectSubmenu,
-    toggleMenu
+    selectSubmenu
 } from "../../redux/actions/ui"
 
 import {
     PRESTADOR,
-    PRODUCTOR,
-    BACK
+    PRODUCTOR
 } from "../../../assets/icons/icons"
 
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
@@ -58,32 +56,16 @@ export class submenuSumarte extends connect(store, OPCION_SELECCIONADA)(LitEleme
             justify-items:center;
             align-items:center       
         }
-        :host([media-size="small"]){
-            grid-auto-flow:row;
-            padding:0;
-            align-content:start;
-            align-items:start
-        }
 
-        
         .seleccionado{
             fill:var(--color-destacado);
            stroke:var(--color-destacado);
            color: var(--color-destacado)
         }
-
-        :host(:not([media-size="small"])) .back {
-          display:none
-        }
- 
-        .back{
-        justify-self:start
-        }
         `
     }
     render() {
         return html `
-        <div class="boton back" @click="${e=>this.oculto=true}">${BACK}</div>
             <div class="boton vertical" @click="${this.selectMenu}" .value="${"PRESTADOR"}">
                 <div>${PRESTADOR}</div>
                 <div>Soy Prestador</div>
@@ -102,8 +84,8 @@ export class submenuSumarte extends connect(store, OPCION_SELECCIONADA)(LitEleme
             button.classList.remove("seleccionado")
         });
         e.currentTarget.classList.add("seleccionado")
+
         store.dispatch(selectSubmenu(e.currentTarget.value))
-        store.dispatch(toggleMenu())
 
     }
 
@@ -111,7 +93,7 @@ export class submenuSumarte extends connect(store, OPCION_SELECCIONADA)(LitEleme
 
     stateChanged(state, name) {
         if (name == OPCION_SELECCIONADA) {
-            this.oculto = state.ui.opcionSeleccionada.option != "SUMARTE" || state.ui.opcionSeleccionada.suboption != ""
+            this.oculto = state.ui.opcionSeleccionada.option != "SUMARTE"
         }
     }
 
@@ -120,12 +102,7 @@ export class submenuSumarte extends connect(store, OPCION_SELECCIONADA)(LitEleme
             oculto: {
                 type: Boolean,
                 reflect: true
-            },
-            mediaSize: {
-                type: String,
-                reflect: true,
-                attribute: "media-size"
-            },
+            }
 
         }
 

@@ -42,61 +42,28 @@ export class slideVial extends connect(store, OPCION_SELECCIONADA)(LitElement) {
             width:100%;
            
         }
-        :host([media-size="small"]){
-            background-image:none;
-            grid-auto-flow:row;
-            grid-template-rows:auto 9fr;
-            background-color:rgb(112,99,96);
-            padding:0;
-        }
-
-
-        .fondo{
-            visibility:hidden
-        }
-
-        .fondo[media-size="small"] {
-            background-image:var(--fondo-vialphone);
-            visibility:visible;
-            background-size:100%;
-            background-repeat:no-repeat
-
-        }
-        .recuadro{
-            align-self:center
-        }
-        .recuadro[media-size="small"]{
-            background-color:rgb(112,99,96);
-            background-image:linear-gradient(to bottom, #49403e, transparent);
-        }
         `
     }
     render() {
         return html `
-            <div  media-size="${this.mediaSize}" class="recuadro">
-            <div class="cartel" media-size="${this.mediaSize}" >
-                <div class="opcion" media-size="${this.mediaSize}">VIAL</div>
-                <div class="titulo" media-size="${this.mediaSize}">
-                    <div >¿PROBLEMAS CON TU AUTO?</div>
-                    <div >¿A KM DE LA SOLUCIÓN?</div>
-                </div>
-                <div class="leyenda" media-size="${this.mediaSize}">
-                Estamos a tu lado para ayudarte en el camino,<BR>
-                todos los días, las 24 hs en servicio de grúa,<BR>
-                cambio de neumáticos y batería, suministro de<BR>
-                combustible e información sobre talleres y repuestos<BR>
-                Estamos con vos en 90 minutos
-                </div>
-                <div class="masinfo" @click="${this.masInfo}" media-size="${this.mediaSize}">Mas Información</div>
+        <div class="cartel">
+            <div class="opcion">VIAL</div>
+            <div class="titulo">
+                <div >¿PROBLEMAS CON TU AUTO?</div>
+                <div >¿A KM DE LA SOLUCIÓN?</div>
             </div>
+            <div class="leyenda">
+            Estamos a tu lado para ayudarte en el camino,<BR>
+            todos los días, las 24 hs en servicio de grúa,<BR>
+            cambio de neumáticos y batería, suministro de<BR>
+            combustible e información sobre talleres y repuestos<BR>
+            Estamos con vos en 90 minutos
             </div>
+            <div class="masinfo" @click="${this.masInfo}">Mas Información</div>
         </div>
-        <div class="fondo" media-size="${this.mediaSize}" >
         <div class="logoBottom">
             ${IKEASISTENCIA}
-
-        </div>     
-        </div>       
+        </div>              
         `
     }
     masInfo(e) {
@@ -106,11 +73,7 @@ export class slideVial extends connect(store, OPCION_SELECCIONADA)(LitElement) {
 
     static get properties() {
         return {
-            mediaSize: {
-                type: String,
-                reflect: true,
-                attribute: "media-size"
-            }
+
         }
 
     }

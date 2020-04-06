@@ -39,59 +39,19 @@ export class slideHogarInfo extends connect(store, OPCION_SELECCIONADA)(LitEleme
             width:100%;
            
         }
-
-        :host([media-size="small"])
-        {
-            
-            /* grid-auto-flow:column; */
-            /* grid-template-columns:auto 9fr; */
-            background-color:rgb(112,99,96);
-             background-image:var(--fondo-hogarinfophone); 
-            background-repeat:no-repeat;
-            
-  
-            padding:0;            
-        }    
-        
-        
-        .fondo{
-            visibility:hidden
-        }
-
-        .fondo[media-size="small"] {
-            
-            visibility:visible;
-            background-repeat:no-repeat
-
-        }
-        .recuadro{
-            align-self:center
-        }
-        .recuadro[media-size="small"]{
-            background-color:rgb(112,99,96);
-            background-image:linear-gradient(to bottom, #49403e, transparent);
-            align-self:flex-start;
-            padding:0
-        }
-        .cartel[media-size="small"]{
-            justify-self: flex-start;
-            align-self: center;
-            background-color:rgba(0,0,0,.5)
-        }
         `
     }
     render() {
         return html `
-        
-        <div class="cartel" media-size="${this.mediaSize}">
-            <div class="tituloInfo" media-size="${this.mediaSize}">
+        <div class="cartel">
+            <div class="tituloInfo">
                 <div >HOGAR</div>
             </div>
-            <div class="leyenda" media-size="${this.mediaSize}">
+            <div class="leyenda">
                 Te asistimos en tu hogar con personal<BR>
                 calificado y de confianza.
         </div>
-        <ul media-size="${this.mediaSize}">
+        <ul>
             <li> Reparación de Aire Acondicionado</li>
             <li> Albañil</li>
             <li> Cerrajero</li>
@@ -107,14 +67,11 @@ export class slideHogarInfo extends connect(store, OPCION_SELECCIONADA)(LitEleme
         </ul>
 
             
-        
-        <div class="conocerMas" @click="${this.conocerMas}" media-size="${this.mediaSize}">CONTRATÁ</div>
         </div>
-        
+        <div class="conocerMas" @click="${this.conocerMas}">CONTRATÁ</div>
         <div class="logoBottom">
             ${IKEASISTENCIA}
         </div>              
-        
         `
     }
 
@@ -127,11 +84,6 @@ export class slideHogarInfo extends connect(store, OPCION_SELECCIONADA)(LitEleme
     static get properties() {
         return {
 
-            mediaSize: {
-                type: String,
-                reflect: true,
-                attribute: "media-size"
-            },
         }
 
     }

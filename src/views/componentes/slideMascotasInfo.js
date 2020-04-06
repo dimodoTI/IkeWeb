@@ -39,11 +39,6 @@ export class slideMascotasInfo extends connect(store, OPCION_SELECCIONADA)(LitEl
             width:100%;
            
         }
-
-        :host([media-size="small"]){
-            background-image: var(--fondo-mascotasinfophone);
-            background-size:100%
-        }
         `
     }
     render() {
@@ -80,11 +75,7 @@ export class slideMascotasInfo extends connect(store, OPCION_SELECCIONADA)(LitEl
 
     static get properties() {
         return {
-            mediaSize: {
-                type: String,
-                reflect: true,
-                attribute: "media-size"
-            }
+
         }
 
     }

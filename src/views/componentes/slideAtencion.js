@@ -54,10 +54,6 @@ export class slideAtencion extends connect(store, OPCION_SELECCIONADA)(LitElemen
             width:100%;
         }
 
-        :host([media-size="small"]){
-            background-image: var(--fondo-atencionphone)
-        }
-
         .servicio{
             width:75rem;
             height:4rem
@@ -119,7 +115,7 @@ export class slideAtencion extends connect(store, OPCION_SELECCIONADA)(LitElemen
 
             </div>
             <div class="titulo">POR ATENCIÓN AL CLIENTE CONTACTANOS:</div>
-            <app-contactos id="contactos" media-size="${this.mediaSize}"></app-contactos>
+            <app-contactos id="contactos"></app-contactos>
         </div>
         <div class="logoBottom">${IKEASISTENCIA}</div>
 
@@ -131,11 +127,6 @@ export class slideAtencion extends connect(store, OPCION_SELECCIONADA)(LitElemen
     static get properties() {
         return {
 
-            mediaSize: {
-                type: String,
-                reflect: true,
-                attribute: "media-size"
-            },
         }
 
     }
