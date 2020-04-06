@@ -6,7 +6,8 @@ import {
     SELECT_MENU,
     SELECT_SUBMENU,
     MAS_INFO,
-    SET_MEDIA
+    SET_MEDIA,
+    TOGGLE_MENU
 } from "../actions/ui";
 
 const initialState = {
@@ -24,6 +25,7 @@ const initialState = {
         size: "large",
         timeStamp: null
     },
+    menuOpen: false
 
 };
 
@@ -66,6 +68,10 @@ export const reducer = (state = initialState, action) => {
             newState.media.size = action.size
             newState.media.timeStamp = (new Date()).getTime()
             break;
+        case TOGGLE_MENU:
+            newState.menuOpen = !newState.menuOpen
+            break;
+
 
     }
     return newState;

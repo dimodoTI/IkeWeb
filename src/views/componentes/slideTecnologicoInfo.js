@@ -67,7 +67,11 @@ export class slideTecnologicoInfo extends connect(store, OPCION_SELECCIONADA)(Li
 
     static get properties() {
         return {
-
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            }
         }
 
     }

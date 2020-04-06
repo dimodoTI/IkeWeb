@@ -42,27 +42,62 @@ export class slideTecnologico extends connect(store, OPCION_SELECCIONADA)(LitEle
             width:100%;
            
         }
+
+        :host([media-size="small"])
+        {
+            background-image:none;
+            grid-auto-flow:row;
+            grid-template-rows:auto 9fr;
+            background-color:rgb(112,99,96);
+            padding:0;
+            
+        }
+
+
+        .fondo{
+            visibility:hidden
+        }
+
+        .fondo[media-size="small"] {
+            background-image:var(--fondo-tecnologicophone);
+            visibility:visible;
+            
+            background-repeat:no-repeat
+
+        }
+        .recuadro{
+            align-self:center
+        }
+        .recuadro[media-size="small"]{
+            background-color:rgb(112,99,96);
+            background-image:linear-gradient(to bottom, #49403e, transparent);
+        }        
         `
     }
     render() {
         return html `
-        <div class="cartel">
-            <div class="opcion">TECNOLÓGICO</div>
-            <div class="titulo">
-                <div >¿SE TE CUELGA LA COMPUTADORA?</div>
-                <div >¿DESCARGASTE UN PROBLEMA?</div>
+        <div  media-size="${this.mediaSize}" style="padding:0" class="recuadro">
+            <div class="cartel" media-size="${this.mediaSize}">
+                <div class="opcion">TECNOLÓGICO</div>
+                <div class="titulo">
+                    <div >¿SE TE CUELGA LA COMPUTADORA?</div>
+                    <div >¿DESCARGASTE UN PROBLEMA?</div>
+                </div>
+                <div class="leyenda">
+                    Te brindamos asesoramiento telefónico las 24 hs<BR>
+                    para guiarte paso a paso en cada solución<BR>
+                    que requieran tus dispositivos tecnológicos y si no lo pueden<BR>
+                    solucionar, coordinamos la atención personalizada            
+                </div>
+                <div class="masinfo" @click="${this.masInfo}">Mas Información</div>
             </div>
-            <div class="leyenda">
-                Te brindamos asesoramiento telefónico las 24 hs<BR>
-                para guiarte paso a paso en cada solución<BR>
-                que requieran tus dispositivos tecnológicos y si no lo pueden<BR>
-                solucionar, coordinamos la atención personalizada            
-            </div>
-            <div class="masinfo" @click="${this.masInfo}">Mas Información</div>
         </div>
+        <div class="fondo" media-size="${this.mediaSize}" >
+
         <div class="logoBottom">
             ${IKEASISTENCIA}
-        </div>              
+        </div>       
+        </div>       
         `
     }
 
@@ -73,7 +108,11 @@ export class slideTecnologico extends connect(store, OPCION_SELECCIONADA)(LitEle
 
     static get properties() {
         return {
-
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            }
         }
 
     }

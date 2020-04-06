@@ -15,7 +15,8 @@ import {
 } from "../css/boton"
 
 import {
-    selectSubmenu
+    selectSubmenu,
+    toggleMenu
 } from "../../redux/actions/ui"
 
 import {
@@ -24,7 +25,8 @@ import {
     VIAL,
     MASCOTAS,
     TECNOLOGICO,
-    BICICLETAS
+    BICICLETAS,
+    BACK
 } from "../../../assets/icons/icons"
 
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
@@ -63,40 +65,67 @@ export class submenuProductos extends connect(store, OPCION_SELECCIONADA)(LitEle
         
         }
 
+        .vertical[media-size="small"]{
+            grid-auto-flow:column;
+            font-size:1.5rem
+        }
+
         .seleccionado{
             fill:var(--color-destacado);
            stroke:var(--color-destacado);
            color: var(--color-destacado)
         }
+        :host([media-size="small"]){
+            grid-auto-flow:row;
+            padding:0;
+            justify-items:left;
+            align-items:left;
+            padding-left:1rem;
+        }
+
+        :host([media-size="small"]) .vertical{grid-gap:0rem}
+
+        :host(:not([media-size="small"])) .back {
+          display:none
+        }
+ 
+        .back{
+        justify-self:start
+        }
+ 
+    .subop[media-size="small"]{
+        padding-left:1.3rem
+    }
         `
     }
 
     render() {
         return html `
-
-            <div class="boton vertical" @click="${this.selectMenu}" .value="${"HOGAR"}">
-            <div>${HOGAR}</div>
-                <div>Hogar</div>
+            <div class="boton back" @click="${e=>this.oculto=true}">${BACK}<div style="font-weight:bold;padding-left:1rem">PRODUCTOS</div> </div>
+            <div class="boton vertical" @click="${this.selectMenu}" .value="${"HOGAR"}" media-size="${this.mediaSize}">
+                <div>${HOGAR}</div>
+                <div class="subop"  media-size="${this.mediaSize}">Hogar</div>
             </div>
-            <div class="boton vertical" @click="${this.selectMenu}" .value="${"VIAL"}">
-            <div>${VIAL}</div>
-                <div>Vial</div>
+            <div class="boton vertical" @click="${this.selectMenu}" .value="${"VIAL"}" media-size="${this.mediaSize}">
+                <div>${VIAL}</div>
+                <div class="subop"  media-size="${this.mediaSize}">Vial</div>
             </div>
-            <div class="boton vertical" @click="${this.selectMenu}" .value="${"MASCOTAS"}">
-            <div>${MASCOTAS}</div>
-                <div>Mascotas</div>
+            <div class="boton vertical" @click="${this.selectMenu}" .value="${"MASCOTAS"}" media-size="${this.mediaSize}">
+                <div>${MASCOTAS}</div>
+                <div class="subop"  media-size="${this.mediaSize}">Mascotas</div>
             </div>
-            <div class="boton vertical"  @click="${this.selectMenu}" .value="${"BICICLETAS"}">
+            <div class="boton vertical"  @click="${this.selectMenu}" .value="${"BICICLETAS"}" media-size="${this.mediaSize}">
                 <div>${BICICLETAS}</div>
-                <div>Bicicletas</div>
+                <div class="subop"  media-size="${this.mediaSize}">Bicicletas</div>
             </div>            
-            <div class="boton vertical" @click="${this.selectMenu}" .value="${"TECNOLOGICO"}">
-            <div>${TECNOLOGICO}</div>
-                <div>Tecnológico</div>
+            <div class="boton vertical" @click="${this.selectMenu}" .value="${"TECNOLOGICO"}" media-size="${this.mediaSize}">
+                <div>${TECNOLOGICO}</div>
+                <div class="subop"  media-size="${this.mediaSize}">Tecnológico</div>
             </div>
   
         `
     }
+
 
     selectMenu(e) {
         const botones = this.shadowRoot.querySelectorAll(".boton")
@@ -105,6 +134,7 @@ export class submenuProductos extends connect(store, OPCION_SELECCIONADA)(LitEle
         });
         e.currentTarget.classList.add("seleccionado")
         store.dispatch(selectSubmenu(e.currentTarget.value))
+        store.dispatch(toggleMenu())
     }
 
     stateChanged(state, name) {
@@ -118,10 +148,16 @@ export class submenuProductos extends connect(store, OPCION_SELECCIONADA)(LitEle
             oculto: {
                 type: Boolean,
                 reflect: true
-            }
+            },
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            },
+
 
         }
-
     }
 }
+
 window.customElements.define("submenu-productos", submenuProductos);

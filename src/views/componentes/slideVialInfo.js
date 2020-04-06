@@ -78,7 +78,11 @@ export class slideVialInfo extends connect(store, OPCION_SELECCIONADA)(LitElemen
 
     static get properties() {
         return {
-
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            }
         }
 
     }

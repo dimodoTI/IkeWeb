@@ -138,30 +138,30 @@ export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
 
     render() {
         return html `
-        <slide-institucional class="slide" id="institucional"></slide-institucional>
+        <slide-institucional class="slide" id="institucional" media-size="${this.mediaSize}"></slide-institucional>
         <!-- productos -->
-        <slide-productos class="slide" id="productos"></slide-productos>
+        <slide-productos class="slide" id="productos" media-size="${this.mediaSize}"></slide-productos>
         
 
-        <slide-hogar class="slide" id="hogar"></slide-hogar>
-        <slide-hogar-info class="slide" id="hogarinfo"></slide-hogar-info>
+        <slide-hogar class="slide" id="hogar" media-size="${this.mediaSize}"></slide-hogar>
+        <slide-hogar-info class="slide" id="hogarinfo" media-size="${this.mediaSize}"></slide-hogar-info>
 
-        <slide-vial class="slide" id="vial"></slide-vial>
-        <slide-vial-info class="slide" id="vialinfo"></slide-vial-info>
+        <slide-vial class="slide" id="vial" media-size="${this.mediaSize}"></slide-vial>
+        <slide-vial-info class="slide" id="vialinfo" media-size="${this.mediaSize}"></slide-vial-info>
 
-        <slide-mascotas class="slide" id="mascotas"></slide-mascotas>
-        <slide-mascotas-info class="slide" id="mascotasinfo"></slide-mascotas-info>
+        <slide-mascotas class="slide" id="mascotas" media-size="${this.mediaSize}"></slide-mascotas>
+        <slide-mascotas-info class="slide" id="mascotasinfo" media-size="${this.mediaSize}"></slide-mascotas-info>
 
-        <slide-tecnologico class="slide" id="tecnologico"></slide-tecnologico>
+        <slide-tecnologico class="slide" id="tecnologico" media-size="${this.mediaSize}"></slide-tecnologico>
         <slide-tecnologico-info class="slide" id="tecnologicoinfo"></slide-tecnologico-info>
 
-        <slide-bicicletas class="slide" id="bicicletas"></slide-bicicletas>
+        <slide-bicicletas class="slide" id="bicicletas" media-size="${this.mediaSize}"></slide-bicicletas>
         <slide-bicicletas-info class="slide" id="bicicletasinfo"></slide-bicicletas-info>
 
         <!-- Atencion Cliente -->
-        <slide-atencion class="slide" id="atencion"></slide-atencion>
+        <slide-atencion class="slide" id="atencion" media-size="${this.mediaSize}"></slide-atencion>
 
-        <slide-cobertura class="slide" id="coberturainfo"></slide-cobertura>
+        <slide-cobertura class="slide" id="coberturainfo" media-size="${this.mediaSize}"></slide-cobertura>
         <slide-formulario-info class="slide" id="formularioinfo"></slide-formulario-info>
         `
     }
@@ -181,7 +181,12 @@ export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
             currentSlide: {
                 type: String,
                 reflect: true
-            }
+            },
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            },
 
         }
 

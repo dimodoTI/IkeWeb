@@ -42,6 +42,10 @@ export class slideProductos extends connect(store, OPCION_SELECCIONADA)(LitEleme
             height:100%;
             width:100%;
         }
+
+        :host([media-size="small"]){
+            background-image:var(--fondo-productosphone)
+        }
         `
     }
     render() {
@@ -56,7 +60,11 @@ export class slideProductos extends connect(store, OPCION_SELECCIONADA)(LitEleme
 
     static get properties() {
         return {
-
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            }
         }
 
     }

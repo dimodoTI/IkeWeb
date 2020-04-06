@@ -126,7 +126,11 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
 
     static get properties() {
         return {
-
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            }
         }
     }
 }
