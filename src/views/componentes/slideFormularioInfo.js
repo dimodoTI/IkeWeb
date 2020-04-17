@@ -144,15 +144,19 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
 
         if (!e.currentTarget.presionado) {
             let errores = this.validarCampos()
+            e.currentTarget.presionado = true;
             if (!errores) {
-                e.currentTarget.presionado = true
+                //e.currentTarget.presionado = true
                 this.sendMail()
+
 
             } else {
 
                 store.dispatch(showError(errores))
+                //e.currentTarget.presionado = true
 
             }
+            e.currentTarget.presionado = false
 
         }
         //}
@@ -232,9 +236,30 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
             (response) => {
                 //console.log(response);
                 alert("Su consulta ha sido enviada y será contactado por un operador IKE")
+                let nombre = this.shadowRoot.querySelector("#nombre")
+                let email = this.shadowRoot.querySelector("#mail")
+                let telefono = this.shadowRoot.querySelector("#telefono")
+                let comentario = this.shadowRoot.querySelector("#comentario")
+                nombre.value = ""
+                email.value = ""
+                telefono.value = ""
+                comentario.value = ""
+
                 store.dispatch(selectMenu("ATENCION_CLIENTE"))
             }
-        );
+        ).catch((response) => {
+            alert("Su email no pudo ser enviado, intente mas tarde")
+            let nombre = this.shadowRoot.querySelector("#nombre")
+            let email = this.shadowRoot.querySelector("#mail")
+            let telefono = this.shadowRoot.querySelector("#telefono")
+            let comentario = this.shadowRoot.querySelector("#comentario")
+            nombre.value = ""
+            email.value = ""
+            telefono.value = ""
+            comentario.value = ""
+
+            store.dispatch(selectMenu("ATENCION_CLIENTE"))
+        });
     }
 
 
