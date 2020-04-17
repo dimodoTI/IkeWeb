@@ -18,22 +18,26 @@ import {
 } from "../css/contactos"
 
 import {
-    masInfo
+    masInfo,
+    toggleMenu
 } from "../../redux/actions/ui"
 import {
     PHONE24,
     IKEASISTENCIA
 }
 from "../../../assets/icons/icons"
+/* import {
+    appContactos
+} from "../componentes/contactos" */
 
 import {
-    appContactos
-} from "../componentes/contactos"
+    appContactosnuevos
+} from "../componentes/contactosnuevos"
 
 
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
-
-export class slideAtencion extends connect(store, OPCION_SELECCIONADA)(LitElement) {
+const TOGGLE = "ui.menuOpen"
+export class slideAtencion extends connect(store, OPCION_SELECCIONADA, TOGGLE)(LitElement) {
     constructor() {
         super();
         this.oculto = true
@@ -54,6 +58,14 @@ export class slideAtencion extends connect(store, OPCION_SELECCIONADA)(LitElemen
             width:100%;
         }
 
+        :host([media-size="small"]){
+            background-image: var(--fondo-atencionphone);
+            background-repeat:no-repeat;
+            background-position:center; 
+            background-size:cover;      
+            
+        }
+
         .servicio{
             width:75rem;
             height:4rem
@@ -64,6 +76,21 @@ export class slideAtencion extends connect(store, OPCION_SELECCIONADA)(LitElemen
             grid-auto-flow:row;
             grid-gap:1rem;
             grid-template-columns:34.2rem;
+            
+        }
+
+        .contenedor[media-size="small"]{
+            background: linear-gradient(180deg, rgba(46,46,46,1) 0%, rgba(232,232,232,0) 100%);
+            padding-left:.1rem;
+            grid-gap: 0;
+            grid-auto-rows: 1fr auto 4fr;
+
+        }
+
+        .titulo[media-size="small"]{
+            justify-self: start;
+             padding-bottom: 3rem;
+             padding-left:1rem;
         }
 
         .solicitarservicio{
@@ -101,7 +128,7 @@ export class slideAtencion extends connect(store, OPCION_SELECCIONADA)(LitElemen
 
     render() {
         return html `
-        <div class="contenedor">
+        <div class="contenedor" media-size="${this.mediaSize}">
             <div class="solicitarservicio" >
                 <div style="justify-self:center">
                     ${PHONE24} 
@@ -114,19 +141,31 @@ export class slideAtencion extends connect(store, OPCION_SELECCIONADA)(LitElemen
                 </div>
 
             </div>
-            <div class="titulo">POR ATENCIÓN AL CLIENTE CONTACTANOS:</div>
-            <app-contactos id="contactos"></app-contactos>
+            <div class="titulo" media-size="${this.mediaSize}">POR ATENCIÓN AL CLIENTE CONTACTANOS:</div>
+            <app-contactosnuevos id="contactos" media-size="${this.mediaSize}"></app-contactosnuevos>
         </div>
-        <div class="logoBottom">${IKEASISTENCIA}</div>
+        <div class="logoBottom" media-size="${this.mediaSize}">
+            ${IKEASISTENCIA}
+        </div>
 
         `
     }
 
-    stateChanged(state, name) {}
+    stateChanged(state, name) {
+
+    }
+
+
+
 
     static get properties() {
         return {
 
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            },
         }
 
     }

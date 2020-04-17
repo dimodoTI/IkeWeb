@@ -190,7 +190,11 @@ export class slideCobertura extends connect(store, OPCION_SELECCIONADA)(LitEleme
 
     static get properties() {
         return {
-
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            }
         }
 
     }

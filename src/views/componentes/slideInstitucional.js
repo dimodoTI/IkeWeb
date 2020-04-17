@@ -55,13 +55,14 @@ export class slideInstitucional extends connect(store, OPCION_SELECCIONADA, MEDI
     }
     render() {
         return html `
-            <div class="cartel">
-                <div class="tituloInstitucional">
+        
+            <div class="cartel" >
+                <div class="tituloInstitucional" media-size="${this.mediaSize}">
                     ESTAMOS EN TU VIDA<br>PARA APOYARTE
                 </div>
-                <div class="masinfo" @click="${this.masInfo}">Mas Información</div>
+                <div class="masinfo" @click="${this.masInfo}"  media-size="${this.mediaSize}">Mas Información</div>
             </div>
-            <div class="logoBottom">
+            <div class="logoBottom" media-size="${this.mediaSize}">
                     ${IKEASISTENCIA}
                 </div>            
         `

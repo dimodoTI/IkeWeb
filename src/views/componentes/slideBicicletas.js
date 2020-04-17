@@ -38,30 +38,44 @@ export class slideBicicletas extends connect(store, OPCION_SELECCIONADA)(LitElem
         :host{
             display:grid;
             background-image: var(--fondo-bicicletas);
-            background-size: 100% 100%;
+            background-size: 100vw 100vh;
             background-position: center;
             height:100%;
             width:100%;
-           
         }
+
+        :host([media-size="small"]){         
+            background-image:var(--fondo-bicicletasphone);
+            background-repeat:no-repeat;
+            background-position:center; 
+            background-size:cover;       
+        }
+        .titulo div {width:60%}
+        
+        .titulo div[media-size="small"]
+        {width:90%}
         `
     }
+
     render() {
         return html `
-        <div class="cartel">
-            <div class="opcion">BICICLETAS</div>
-            <div class="titulo">
-                <div >QUE NADA DETENGA TUS GRANAS</div>
-                <div >DE CUIDAR EL MEDIOAMBIENTE</div>
+        <div class="cartel" media-size = "${this.mediaSize}">
+        <div class = "opcion" media-size = "${this.mediaSize}">BICICLETAS</div>
+            <div class = "titulo" media-size = "${this.mediaSize}" >
+                <div media-size="${this.mediaSize}">
+                    ¿NECESITAS AYUDA CON TU BICICLETA?
+                </div>
             </div>
-            <div class="leyenda">
-                Andá tranquilo, estamos para ayudarte si la bici te deja a pata
+            <div class="leyenda" media-size="${this.mediaSize}" style="width:80%">
+                Andá tranquilo que nosotros te brindamos asistencia las 24 horas, los 365 días del año
         </div>
-            <div class="masinfo" @click="${this.masInfo}">Mas Información</div>
+            <div class="masinfo" @click="${this.masInfo}" media-size="${this.mediaSize}">Mas Información</div>
         </div>
-        <div class="logoBottom">
-                    ${IKEASISTENCIA}
-                </div>      
+
+        <div class="logoBottom" media-size="${this.mediaSize}">
+            ${IKEASISTENCIA}
+        </div>      
+
         `
     }
     masInfo(e) {
@@ -71,7 +85,11 @@ export class slideBicicletas extends connect(store, OPCION_SELECCIONADA)(LitElem
 
     static get properties() {
         return {
-
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            }
         }
 
     }

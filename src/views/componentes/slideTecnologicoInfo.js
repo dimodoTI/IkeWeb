@@ -38,26 +38,33 @@ export class slideTecnologicoInfo extends connect(store, OPCION_SELECCIONADA)(Li
             width:100%;
            
         }
+
+        :host([media-size="small"]){         
+            background-image:var(--fondo-tecnologicoinfophone);
+            background-repeat:no-repeat;
+            background-position:center; 
+            background-size:cover;         
+        } 
         `
     }
     render() {
         return html `
-        <div class="cartel">
-            <div class="tituloInfo">
+        <div class="cartel"  media-size="${this.mediaSize}">
+            <div class="tituloInfo"  media-size="${this.mediaSize}">
                 <div >TECNOLÓGICO</div>
             </div>
-            <div class="leyenda">
-                Conectándote con lo último en tecnología.                
-        </div>
+            <div class="leyenda" style="width:100%"  media-size="${this.mediaSize}">
+                Conectándote con lo último en tecnología
+            </div>
         <ul>
-            <li> Asesoramiento remoto las 24hs.</li>
-            <li> Arreglo de pantalla de Celulares</li>
-            <li> Configuración remota de equipos      </li>      
+            <li  media-size="${this.mediaSize}"> Asesoramiento remoto las 24hs.</li>
+            <li media-size="${this.mediaSize}"> Arreglo de pantalla de Celulares</li>
+            <li  media-size="${this.mediaSize}"> Configuración remota de equipos</li>   
         </ul>
 
             
         </div>
-        <div class="logoBottom">
+        <div class="logoBottom" media-size="${this.mediaSize}">
             ${IKEASISTENCIA}
         </div>              
         `
@@ -67,7 +74,11 @@ export class slideTecnologicoInfo extends connect(store, OPCION_SELECCIONADA)(Li
 
     static get properties() {
         return {
-
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            }
         }
 
     }

@@ -42,28 +42,42 @@ export class slideVial extends connect(store, OPCION_SELECCIONADA)(LitElement) {
             width:100%;
            
         }
-        `
+
+
+
+        :host([media-size="small"]){         
+            background-image:var(--fondo-vialphone);
+            background-repeat:no-repeat;
+            background-position:center; 
+            background-size:cover;       
+        }`
+
     }
     render() {
         return html `
-        <div class="cartel">
-            <div class="opcion">VIAL</div>
-            <div class="titulo">
-                <div >¿PROBLEMAS CON TU AUTO?</div>
-                <div >¿A KM DE LA SOLUCIÓN?</div>
+            
+            <div class="cartel" media-size="${this.mediaSize}" >
+                <div class="opcion" media-size="${this.mediaSize}">VIAL</div>
+                <div class="titulo" media-size="${this.mediaSize}">
+                    <div >¿PROBLEMAS CON TU AUTO?</div>
+                    <div >¿A KM DE LA SOLUCIÓN?</div>
+                </div>
+                <div class="leyenda" media-size="${this.mediaSize}">
+                Estamos a tu lado para ayudarte en el camino,
+                todos los días, las 24 hs en servicio de grúa,
+                cambio de neumáticos y batería, suministro de
+                combustible e información sobre talleres y repuestos
+                Estamos con vos en 90 minutos
+                </div>
+                <div class="masinfo" @click="${this.masInfo}" media-size="${this.mediaSize}">Mas Información</div>
             </div>
-            <div class="leyenda">
-            Estamos a tu lado para ayudarte en el camino,<BR>
-            todos los días, las 24 hs en servicio de grúa,<BR>
-            cambio de neumáticos y batería, suministro de<BR>
-            combustible e información sobre talleres y repuestos<BR>
-            Estamos con vos en 90 minutos
             </div>
-            <div class="masinfo" @click="${this.masInfo}">Mas Información</div>
-        </div>
-        <div class="logoBottom">
+
+
+        <div class="logoBottom" media-size="${this.mediaSize}">
             ${IKEASISTENCIA}
-        </div>              
+
+        </div>           
         `
     }
     masInfo(e) {
@@ -73,7 +87,11 @@ export class slideVial extends connect(store, OPCION_SELECCIONADA)(LitElement) {
 
     static get properties() {
         return {
-
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            }
         }
 
     }

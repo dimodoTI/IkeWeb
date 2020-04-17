@@ -1,17 +1,17 @@
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     html {
-        font-size: 5vmin
+        font-size: 3.4vmin
     }
 }
- 
-@media only screen and (max-width: 800px) and (min-width: 601px) {
+
+@media only screen and (max-width: 800px) and (min-width: 768px) {
     html {
         font-size: 1.5vmin
     }
 }
- 
+
 @media only screen and (min-width: 801px) {
     html {
-        font-size: 2.55vmin
+        font-size: 2.65vmin
     }
 }

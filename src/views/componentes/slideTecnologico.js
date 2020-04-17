@@ -42,27 +42,38 @@ export class slideTecnologico extends connect(store, OPCION_SELECCIONADA)(LitEle
             width:100%;
            
         }
+
+        :host([media-size="small"]){         
+            background-image:var(--fondo-tecnologicophone);
+            background-repeat:no-repeat;
+            background-position:center; 
+            background-size:cover;       
+        }     
         `
     }
     render() {
         return html `
-        <div class="cartel">
-            <div class="opcion">TECNOLÓGICO</div>
-            <div class="titulo">
-                <div >¿SE TE CUELGA LA COMPUTADORA?</div>
-                <div >¿DESCARGASTE UN PROBLEMA?</div>
+
+            <div class="cartel" media-size="${this.mediaSize}">
+                <div class="opcion"  media-size="${this.mediaSize}">TECNOLÓGICO</div>
+                <div class="titulo"  media-size="${this.mediaSize}">
+                    <div >¿SE TE CUELGA LA COMPUTADORA?</div>
+                    <div >¿DESCARGASTE UN PROBLEMA?</div>
+                </div>
+                <div class="leyenda"  media-size="${this.mediaSize}">
+                    Te brindamos asesoramiento telefónico las 24 hs
+                    para guiarte paso a paso en cada solución que 
+                    requieran tus dispositivos tecnológicos y si no  
+                     pueden solucionar, coordinamos la atención
+                    personalizada            
+                </div>
+                <div class="masinfo" @click="${this.masInfo}"  media-size="${this.mediaSize}">Mas Información</div>
             </div>
-            <div class="leyenda">
-                Te brindamos asesoramiento telefónico las 24 hs<BR>
-                para guiarte paso a paso en cada solución<BR>
-                que requieran tus dispositivos tecnológicos y si no lo pueden<BR>
-                solucionar, coordinamos la atención personalizada            
-            </div>
-            <div class="masinfo" @click="${this.masInfo}">Mas Información</div>
-        </div>
-        <div class="logoBottom">
+
+        <div class="logoBottom" media-size="${this.mediaSize}">
             ${IKEASISTENCIA}
-        </div>              
+        </div>       
+      
         `
     }
 
@@ -73,7 +84,11 @@ export class slideTecnologico extends connect(store, OPCION_SELECCIONADA)(LitEle
 
     static get properties() {
         return {
-
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            }
         }
 
     }

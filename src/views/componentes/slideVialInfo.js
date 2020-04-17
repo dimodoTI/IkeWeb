@@ -38,37 +38,44 @@ export class slideVialInfo extends connect(store, OPCION_SELECCIONADA)(LitElemen
             width:100%;
            
         }
+
+        :host([media-size="small"]){         
+            background-image:var(--fondo-vialinfophone);
+            background-repeat:no-repeat;
+            background-position:center; 
+            background-size:cover;       
+        } 
         `
     }
     render() {
         return html `
-        <div class="cartel">
-            <div class="tituloInfo">
+        <div class="cartel"  media-size="${this.mediaSize}">
+            <div class="tituloInfo"  media-size="${this.mediaSize}">
                 <div >VIAL</div>
             </div>
-            <div class="leyenda">
-                Con vos para solucionar<BR>
+            <div class="leyenda"  media-size="${this.mediaSize}">
+                Con vos para solucionar
                 cualquier percance en el camino.
             </div>
-        <ul>
-            <li> Cambio de neumático</li>
-            <li> Cerrajería Automovilística</li>
-            <li> Colocación de alarma</li>
-            <li> Custodia de vehículo</li>
-            <li> Extracción</li>
-            <li> Grabado de cristales</li>
-            <li> Mecánica ligera</li>
-            <li> Paso de corriente</li>
-            <li> Referencias Mecánicas</li>
-            <li> Remis</li>
-            <li> Remolque</li>
-            <li> Suministro de combustible</li>
-            <li> Traslado de acompañantes</li>  
+        <ul media-size="${this.mediaSize}">
+            <li media-size="${this.mediaSize}"> Cambio de neumático</li>
+            <li media-size="${this.mediaSize}"> Cerrajería Automovilística</li>
+            <li media-size="${this.mediaSize}"> Colocación de alarma</li>
+            <li media-size="${this.mediaSize}"> Custodia de vehículo</li>
+            <li media-size="${this.mediaSize}"> Extracción</li>
+            <li media-size="${this.mediaSize}"> Grabado de cristales</li>
+            <li media-size="${this.mediaSize}"> Mecánica ligera</li>
+            <li media-size="${this.mediaSize}"> Paso de corriente</li>
+            <li media-size="${this.mediaSize}"> Referencias Mecánicas</li>
+            <li media-size="${this.mediaSize}"> Remis</li>
+            <li media-size="${this.mediaSize}"> Remolque</li>
+            <li media-size="${this.mediaSize}"> Suministro de combustible</li>
+            <li media-size="${this.mediaSize}"> Traslado de acompañantes</li>  
         </ul>
 
             
         </div>
-        <div class="logoBottom">
+        <div class="logoBottom" media-size="${this.mediaSize}">
             ${IKEASISTENCIA}
         </div>              
         `
@@ -78,7 +85,11 @@ export class slideVialInfo extends connect(store, OPCION_SELECCIONADA)(LitElemen
 
     static get properties() {
         return {
-
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            }
         }
 
     }

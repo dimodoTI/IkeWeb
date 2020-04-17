@@ -15,12 +15,14 @@ import {
 } from "../css/boton"
 
 import {
-    selectSubmenu
+    selectSubmenu,
+    toggleMenu
 } from "../../redux/actions/ui"
 
 import {
     PRESTADOR,
-    PRODUCTOR
+    PRODUCTOR,
+    BACK
 } from "../../../assets/icons/icons"
 
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
@@ -42,7 +44,7 @@ export class submenuSumarte extends connect(store, OPCION_SELECCIONADA)(LitEleme
             background-color:rgb(0,0,0,.3);
             align-items:center;
             justify-items:center;
-            padding: 1rem
+            padding: 1rem      
         }
         :host([oculto]) {
             display:none
@@ -54,7 +56,13 @@ export class submenuSumarte extends connect(store, OPCION_SELECCIONADA)(LitEleme
             font-size:.8rem;
             grid-gap:.3rem;
             justify-items:center;
-            align-items:center       
+            align-items:center
+        
+        }
+
+        .vertical[media-size="small"]{
+            grid-auto-flow:column;
+            font-size:1.5rem
         }
 
         .seleccionado{
@@ -62,17 +70,46 @@ export class submenuSumarte extends connect(store, OPCION_SELECCIONADA)(LitEleme
            stroke:var(--color-destacado);
            color: var(--color-destacado)
         }
+        :host([media-size="small"]){
+            grid-auto-flow:row;
+            padding:0;
+            justify-items:left;
+            align-items:left;
+            padding-left:1rem;
+            align-content:flex-start;
+            justify-items:flex-start;
+        }
+
+        :host([media-size="small"]) .vertical{
+            grid-gap:3rem
+        }
+
+        :host(:not([media-size="small"])) .back {
+          display:none
+        }
+ 
+        .back{
+            justify-self:start;
+            padding-bottom: 3rem;
+            padding-top: 1rem;
+        }
+ 
+        .subop[media-size="small"]{
+            padding-left:1.3rem
+        }
         `
     }
+
     render() {
         return html `
-            <div class="boton vertical" @click="${this.selectMenu}" .value="${"PRESTADOR"}">
+            <div class="boton back" @click="${e=>this.oculto=true}">${BACK}<div style="font-weight:bold;padding-left:1rem">¿Querés sumarte al equipo Iké?</div> </div>
+            <div class="boton vertical" @click="${this.selectMenu}" .value="${"PRESTADOR"}" media-size="${this.mediaSize}">
                 <div>${PRESTADOR}</div>
-                <div>Soy Prestador</div>
+                <div class="subop"  media-size="${this.mediaSize}">Soy Prestador</div>
             </div>
-            <div class="boton vertical" @click="${this.selectMenu}" .value="${"PRODUCTOR"}">
+            <div class="boton vertical" @click="${this.selectMenu}" .value="${"PRODUCTOR"}" media-size="${this.mediaSize}">
             <div>${PRODUCTOR}</div>
-                <div>Soy Productor</div>
+                <div class="subop"  media-size="${this.mediaSize}">Soy Productor</div>
             </div>
         
         `
@@ -84,8 +121,8 @@ export class submenuSumarte extends connect(store, OPCION_SELECCIONADA)(LitEleme
             button.classList.remove("seleccionado")
         });
         e.currentTarget.classList.add("seleccionado")
-
         store.dispatch(selectSubmenu(e.currentTarget.value))
+        store.dispatch(toggleMenu())
 
     }
 
@@ -93,7 +130,7 @@ export class submenuSumarte extends connect(store, OPCION_SELECCIONADA)(LitEleme
 
     stateChanged(state, name) {
         if (name == OPCION_SELECCIONADA) {
-            this.oculto = state.ui.opcionSeleccionada.option != "SUMARTE"
+            this.oculto = state.ui.opcionSeleccionada.option != "SUMARTE" || state.ui.opcionSeleccionada.suboption != ""
         }
     }
 
@@ -102,7 +139,12 @@ export class submenuSumarte extends connect(store, OPCION_SELECCIONADA)(LitEleme
             oculto: {
                 type: Boolean,
                 reflect: true
-            }
+            },
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            },
 
         }
 

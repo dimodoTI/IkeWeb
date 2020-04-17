@@ -39,28 +39,35 @@ export class slideBicicletasInfo extends connect(store, OPCION_SELECCIONADA)(Lit
             width:100%;
            
         }
+        :host([media-size="small"]){         
+            background-image:var(--fondo-bicicletasinfophone);
+            background-repeat:no-repeat;
+            background-position:center; 
+            background-size:cover;       
+        } 
         `
     }
     render() {
         return html `
-        <div class="cartel">
-            <div class="tituloInfo">
+        <div class="cartel" media-size="${this.mediaSize}">
+            <div class="tituloInfo" media-size="${this.mediaSize}">
                 <div >BICICLETAS</div>
             </div>
-            <div class="leyenda">
-            Aca hay q pensar un texto<BR>
-            para bicicletas.
+            <div class="leyenda" style="width:100%">
+                Que nada detenga tus ganas de cuidar el medioambiente
+                
+            </div>
+            <ul media-size="${this.mediaSize}">
+                <li media-size="${this.mediaSize}"> Pinchadura</li>
+                <li media-size="${this.mediaSize}"> Rotura de frenos y/o cadena</li>
+                <li media-size="${this.mediaSize}"> Calibración de cambios</li>
+                <li media-size="${this.mediaSize}"> Mantenimiento general de la bicicleta</li>
+                <li media-size="${this.mediaSize}"> Traslados de Bicicleta ante imposibilidad de arreglarla</li>
+            </ul>           
+            <div class="conocerMas" @click="${this.conocerMas}" media-size="${this.mediaSize}">CONTRATÁ</div>
         </div>
-        <ul>
-            <li> Pinchadura</li>
-            <li> Rotura de frenos y/o cadena</li>
-            <li> Calibración de cambios</li>
-            <li> Mantenimiento general de la bicicleta</li>
-            <li> Traslados de Bicicleta ante imposibilidad de arreglarla</li>
-        </ul>           
-    </div>
-    <div class="conocerMas" @click="${this.conocerMas}">CONTRATÁ</div>
-    <div class="logoBottom">
+    
+    <div class="logoBottom" media-size="${this.mediaSize}">
                     ${IKEASISTENCIA}
                 </div>      
         `
@@ -72,7 +79,11 @@ export class slideBicicletasInfo extends connect(store, OPCION_SELECCIONADA)(Lit
 
     static get properties() {
         return {
-
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            }
         }
 
     }

@@ -43,30 +43,35 @@ export class slideHogar extends connect(store, OPCION_SELECCIONADA)(LitElement) 
             width:100%;
         }
 
-  
-        `
+        :host([media-size="small"]){         
+            background-image:var(--fondo-hogarphone);
+            background-repeat:no-repeat;
+            background-position:center; 
+            background-size:cover;       
+        }`
+
     }
 
     render() {
         return html `
-        <div class="cartel">
-            <div class="opcion">HOGAR</div>
-            <div class="titulo">
-                <div >¿PROBLEMAS IMPREVISTOS?</div>
-                <div >¿TU CASA TE DESBORDA?</div>
+
+        <div class = "cartel" media-size = "${this.mediaSize}" >
+            <div class = "opcion" media-size = "${this.mediaSize}" > HOGAR </div> 
+                <div class = "titulo" media-size = "${this.mediaSize}" >
+                    <div> ¿PROBLEMAS IMPREVISTOS ? </div> 
+                    <div> ¿TU CASA TE DESBORDA ? </div> 
+                </div> 
+                <div class = "leyenda" media-size = "${this.mediaSize}">
+                    Si olvidas o perdés tu llave te enviamos un cerrajero, ante problemas eléctricos un especialista y si el goteo no te deja dormir de noche contás con nuestros plomeros de confianza 
+                </div>
+                <div class= "masinfo" @click = "${this.masInfo}" media-size = "${this.mediaSize}"> Mas Información </div>
             </div>
-            <div class="leyenda">
-                Si olvidas o perdés tu llave te enviamos un cerrajero,<br>
-                ante problemas eléctricos un especialista y <br>
-                si el goteo no te deja dormir de noche <br>
-                contás con nuestros plomeros de confianza
-            </div>
-            <div class="masinfo" @click="${this.masInfo}">Mas Información</div>
-        </div>
-        <div class="logoBottom">
+
+            <div class="logoBottom" media-size="${this.mediaSize}">
             ${IKEASISTENCIA}
-        </div>      
-        `
+        </div>           
+
+                `
     }
 
     masInfo(e) {
@@ -78,6 +83,11 @@ export class slideHogar extends connect(store, OPCION_SELECCIONADA)(LitElement) 
     static get properties() {
         return {
 
+            mediaSize: {
+                type: String,
+                reflect: true,
+                attribute: "media-size"
+            },
         }
 
     }
