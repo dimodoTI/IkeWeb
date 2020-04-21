@@ -162,6 +162,14 @@ export class appMenu extends connect(store, MENU, TOGGLE)(LitElement) {
             button.classList.remove("seleccionado")
         });
         e.currentTarget.classList.add("seleccionado")
+
+        window.estado = {
+            option: e.currentTarget.value,
+            suboption: "",
+            masInfo: ""
+        }
+        window.history.pushState(window.estado, null, "");
+
         store.dispatch(selectMenu(e.currentTarget.value))
 
         if (e.currentTarget.autoClose) {

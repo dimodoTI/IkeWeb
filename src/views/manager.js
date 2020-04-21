@@ -35,6 +35,11 @@ import {
 import {
     alertaErrores
 } from "../views/componentes/alert"
+import {
+    selectMenu,
+    selectSubmenu
+
+} from "../redux/actions/ui"
 
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
 const MEDIA_SIZE = "ui.media.timeStamp"
@@ -44,6 +49,24 @@ export class viewManager extends connect(store, OPCION_SELECCIONADA, MEDIA_SIZE,
     constructor() {
         super();
         this.option = ""
+
+        window.estado = {
+            option: "INSTITUCIONAL",
+            suboption: "",
+            masInfo: ""
+        }
+        window.history.replaceState(window.estado, null, "")
+
+        window.onpopstate = (event) => {
+            if (event.state) {
+                if (event.state.suboption != "") {
+                    store.dispatch(selectSubmenu(event.state.suboption))
+                } else {
+                    store.dispatch(selectMenu(event.state.option))
+                }
+            }
+
+        };
     }
 
     static get styles() {

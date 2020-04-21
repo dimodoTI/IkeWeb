@@ -122,6 +122,14 @@ export class submenuSumarte extends connect(store, OPCION_SELECCIONADA)(LitEleme
         });
 
         e.currentTarget.classList.add("seleccionado")
+
+        window.estado = {
+            option: window.estado.option,
+            suboption: e.currentTarget.value,
+            masInfo: ""
+        }
+        window.history.pushState(window.estado, null, "");
+
         store.dispatch(selectMenu(e.currentTarget.value))
 
 
