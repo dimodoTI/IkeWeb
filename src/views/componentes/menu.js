@@ -29,10 +29,8 @@ import {
 
 
 import {
-    IKE,
-    BUSCAR,
-
-    BACK
+    BACK,
+    IKEASISTENCIA
 } from "../../../assets/icons/icons"
 
 const MENU = "ui.opcionSeleccionada.timeStamp"
@@ -52,11 +50,13 @@ export class appMenu extends connect(store, MENU, TOGGLE)(LitElement) {
             grid-auto-flow:column;
             grid-gap:1rem;
             background-color:rgb(0,0,0);
-            align-items:baseline;
+            /* align-items:baseline; */
             justify-items:center;
             padding-top: .5rem;
-            padding-bottom: .5rem;
+            /* padding-bottom: .5rem; */
             z-index:10;
+            align-items: center;
+            padding-bottom: 0;
             
 
         
@@ -73,7 +73,8 @@ export class appMenu extends connect(store, MENU, TOGGLE)(LitElement) {
             font-size:1.4rem;
             grid-gap:2rem;
             background-color:rgb(0,0,0,.9);
-            padding-top:1rem
+            padding-top:1rem;
+
 
         }
 
@@ -109,14 +110,28 @@ export class appMenu extends connect(store, MENU, TOGGLE)(LitElement) {
         .back{
             justify-self:start
         }
+
+        :host([media-size="small"]) .ike{
+            display:none;
+        }
+
+        .ike{padding:0;
+            margin:0}
+
+        .boton svg{
+            height: 50px;
+            width: 50px;
+            fill: white;
+            stroke: white;}
         `
     }
 
     render() {
         return html `
             <!-- <div class="boton back" @click="${e=>store.dispatch(toggleMenu())}">${BACK}</div> -->
+            <div class="boton " @click="${this.selectMenu}" .value="${"INSTITUCIONAL"}" .autoClose="${true}">${IKEASISTENCIA}</div>
+
             <div class="boton back" @click="${this.selectMenu}" .value="${"INSTITUCIONAL"}" .autoClose="${true}" >${BACK}</div>
-            <!-- <div class="boton" @click="${this.selectMenu}" .value="${"INSTITUCIONAL"}" .autoClose="${true}">${IKE}</div> -->
             <div class="boton " @click="${this.presentacion}" .value="${"INSTITUCIONAL"}">
                 <div>Institucional</div>
             </div>
@@ -134,9 +149,7 @@ export class appMenu extends connect(store, MENU, TOGGLE)(LitElement) {
                 <div>¿No sos cliente? Contactanos</div>
             </div>
 
-            <!-- <div class="boton"  @click="${this.selectMenu}" .value="${"BUSQUEDA"}">
-                <div>${BUSCAR}</div>
-            </div> -->
+
 
             <submenu-productos class="submenu" id="submenu" media-size="${this.mediaSize}"></submenu-productos>
             <submenu-sumarte id="submenuSumarte" class="submenu" media-size="${this.mediaSize}"></submenu-sumarte>        

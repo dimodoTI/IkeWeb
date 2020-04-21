@@ -15,7 +15,7 @@ import {
 } from "../css/boton"
 
 import {
-    selectSubmenu,
+    selectMenu,
     toggleMenu
 } from "../../redux/actions/ui"
 
@@ -103,11 +103,11 @@ export class submenuSumarte extends connect(store, OPCION_SELECCIONADA)(LitEleme
     render() {
         return html `
             <div class="boton back" @click="${e=>this.oculto=true}">${BACK}<div style="font-weight:bold;padding-left:1rem">¿Querés sumarte al equipo Iké?</div> </div>
-            <div class="boton vertical" @click="${this.selectMenu}" .value="${"PRESTADOR"}" media-size="${this.mediaSize}">
+            <div class="boton vertical" @click="${this.selectMenu}" .value="${"FORMULARIOINFO"}" media-size="${this.mediaSize}">
                 <div>${PRESTADOR}</div>
                 <div class="subop"  media-size="${this.mediaSize}">Soy Prestador</div>
             </div>
-            <div class="boton vertical" @click="${this.selectMenu}" .value="${"PRODUCTOR"}" media-size="${this.mediaSize}">
+            <div class="boton vertical" @click="${this.productor}" .value="${"PRODUCTOR"}" media-size="${this.mediaSize}">
             <div>${PRODUCTOR}</div>
                 <div class="subop"  media-size="${this.mediaSize}">Soy Productor</div>
             </div>
@@ -120,11 +120,24 @@ export class submenuSumarte extends connect(store, OPCION_SELECCIONADA)(LitEleme
         botones.forEach((button) => {
             button.classList.remove("seleccionado")
         });
+
         e.currentTarget.classList.add("seleccionado")
-        store.dispatch(selectSubmenu(e.currentTarget.value))
-        store.dispatch(toggleMenu())
+        store.dispatch(selectMenu(e.currentTarget.value))
+
 
     }
+
+
+
+
+
+    productor(e) {
+        window.open("http://productoresike.com.ar/", "")
+        this.selectMenu(e)
+        this.open = false
+        store.dispatch(toggleMenu())
+    }
+
 
 
 

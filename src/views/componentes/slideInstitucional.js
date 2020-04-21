@@ -51,16 +51,31 @@ export class slideInstitucional extends connect(store, OPCION_SELECCIONADA, MEDI
         :host([media-size="small"]){
             background-image:var(--fondo-institucionalphone);
         }
+
+        .cartel[media-size="small"]{
+            align-self:flex-start;
+            
+        }
+        .leyenda[media-size="small"]{
+            width:90%;
+            font-size:1.05rem
+
+        }
         `
     }
     render() {
         return html `
         
-            <div class="cartel" >
+            <div class="cartel" media-size="${this.mediaSize}" >
                 <div class="tituloInstitucional" media-size="${this.mediaSize}">
                     ESTAMOS EN TU VIDA<br>PARA APOYARTE
                 </div>
-                <div class="masinfo" @click="${this.masInfo}"  media-size="${this.mediaSize}">Mas Información</div>
+                <div class="leyenda" media-size="${this.mediaSize}">
+                Somos solucionadores de problemas cotidianos y estamos a tu disposición frente a diversas problemáticas que puedan surgir en tu día  a día. Nuestra idea es siempre estar ahí, para hacerte la vida más  fácil.
+                Estamos al lado tuyo cuando vos, tu familia, tu mascota, tu auto o tu  hogar nos necesiten. Para que mientras nosotros nos ocupamos del  problema, vos puedas seguir tranquilamente con tu vida
+
+                </div>
+                <!-- <div class="masinfo" @click="${this.masInfo}"  media-size="${this.mediaSize}">Mas Información</div> -->
             </div>
             <div class="logoBottom" media-size="${this.mediaSize}">
                     ${IKEASISTENCIA}
