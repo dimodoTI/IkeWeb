@@ -138,6 +138,14 @@ export class submenuProductos extends connect(store, OPCION_SELECCIONADA)(LitEle
             button.classList.remove("seleccionado")
         });
         e.currentTarget.classList.add("seleccionado")
+
+        window.estado = {
+            option: window.estado.option,
+            suboption: e.currentTarget.value,
+            masInfo: ""
+        }
+        window.history.pushState(window.estado, null, "");
+
         store.dispatch(selectSubmenu(e.currentTarget.value))
         store.dispatch(toggleMenu())
     }

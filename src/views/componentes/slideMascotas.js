@@ -84,6 +84,12 @@ export class slideMascotas extends connect(store, OPCION_SELECCIONADA)(LitElemen
         `
     }
     masInfo(e) {
+        window.estado = {
+            option: window.estado.option,
+            suboption: window.estado.suboption,
+            masInfo: true
+        }
+        window.history.pushState(window.estado, null, "");
         store.dispatch(masInfo())
     }
 

@@ -15,4 +15,5 @@ import {
     captureMedia
 } from "./redux/actions/ui"
 
+
 store.dispatch(captureMedia())

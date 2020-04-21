@@ -75,6 +75,12 @@ export class slideHogar extends connect(store, OPCION_SELECCIONADA)(LitElement) 
     }
 
     masInfo(e) {
+        window.estado = {
+            option: window.estado.option,
+            suboption: window.estado.suboption,
+            masInfo: true
+        }
+        window.history.pushState(window.estado, null, "");
         store.dispatch(masInfo())
     }
 
