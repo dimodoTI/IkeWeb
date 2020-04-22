@@ -34,6 +34,7 @@ export class slideVialInfo extends connect(store, OPCION_SELECCIONADA)(LitElemen
             background-image: var(--fondo-vialinfo);
             background-size: 100% 100%;
             background-position: center;
+            background-size: cover;
             height:100%;
             width:100%;
            

@@ -40,6 +40,7 @@ export class slideBicicletas extends connect(store, OPCION_SELECCIONADA)(LitElem
             background-image: var(--fondo-bicicletas);
             background-size: 100vw 100vh;
             background-position: center;
+            background-size: cover;
             height:100%;
             width:100%;
         }

@@ -34,6 +34,7 @@ export class slideTecnologicoInfo extends connect(store, OPCION_SELECCIONADA)(Li
             background-image: var(--fondo-tecnologicoinfo);
             background-size: 100% 100%;
             background-position: center;
+            background-size: cover;
             height:100%;
             width:100%;
            

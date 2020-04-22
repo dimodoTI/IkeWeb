@@ -36,15 +36,17 @@ export class slideProductos extends connect(store, OPCION_SELECCIONADA)(LitEleme
    
         :host{
             display:grid;
-            background-image: var(--fondo-productos);
+            background-image: var(--fondo-institucional);
             background-size: 100vw 100vh;
             background-position: center;
+            background-size: cover;
             height:100%;
             width:100%;
+        
         }
 
         :host([media-size="small"]){
-            background-image:var(--fondo-productosphone)
+            background-image:var(--fondo-institucionalphone)
         }
         `
     }

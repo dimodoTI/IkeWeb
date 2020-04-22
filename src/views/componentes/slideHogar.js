@@ -39,6 +39,7 @@ export class slideHogar extends connect(store, OPCION_SELECCIONADA)(LitElement) 
             background-image: var(--fondo-hogar);
             background-size: 100vw 100vh;
             background-position: center;
+            background-size: cover;
             height:100%;
             width:100%;
         }
