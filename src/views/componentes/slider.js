@@ -73,6 +73,10 @@ import {
     slideCobertura
 } from "../componentes/slideCobertura"
 
+import {
+    slideSumarte
+} from "../componentes/slideSumarte"
+
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
 
 export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
@@ -113,6 +117,7 @@ export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
         :host(:not([currentslide="PRODUCTOSBICICLETASINFO"])) #bicicletasinfo,
         :host(:not([currentslide="ATENCION_CLIENTE"])) #atencion,
         :host(:not([currentslide="COBERTURAINFO"])) #coberturainfo,
+        :host(:not([currentslide="SUMARTE"])) #sumarte,
         :host(:not([currentslide="FORMULARIOINFO"])) #formularioinfo{
             opacity:0;
             z-index:-10
@@ -164,6 +169,7 @@ export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
 
         <slide-cobertura class="slide" id="coberturainfo" media-size="${this.mediaSize}"></slide-cobertura>
         <slide-formulario-info class="slide" id="formularioinfo"  media-size="${this.mediaSize}"></slide-formulario-info>
+        <slide-sumarte class="slide" id="sumarte" media-size="${this.mediaSize}"></slide-sumarte>
         `
     }
 
