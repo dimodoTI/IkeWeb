@@ -82,6 +82,13 @@ export class slideHogar extends connect(store, OPCION_SELECCIONADA)(LitElement) 
             masInfo: true
         }
         window.history.pushState(window.estado, null, "");
+        dataLayer.push({
+            event: 'pageview',
+            page: {
+                path: '/' + e.currentTarget.value,
+
+            }
+        });
         store.dispatch(masInfo())
     }
 

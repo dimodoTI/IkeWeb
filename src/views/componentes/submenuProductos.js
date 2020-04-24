@@ -139,6 +139,14 @@ export class submenuProductos extends connect(store, OPCION_SELECCIONADA)(LitEle
         });
         e.currentTarget.classList.add("seleccionado")
 
+        dataLayer.push({
+            event: 'pageview',
+            page: {
+                path: '/' + e.currentTarget.value,
+
+            }
+        });
+
         window.estado = {
             option: window.estado.option,
             suboption: e.currentTarget.value,

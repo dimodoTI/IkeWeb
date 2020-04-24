@@ -84,6 +84,13 @@ export class slideTecnologico extends connect(store, OPCION_SELECCIONADA)(LitEle
             suboption: window.estado.suboption,
             masInfo: true
         }
+        dataLayer.push({
+            event: 'pageview',
+            page: {
+                path: '/' + e.currentTarget.value,
+
+            }
+        });
         window.history.pushState(window.estado, null, "");
         store.dispatch(masInfo())
     }

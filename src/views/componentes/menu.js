@@ -163,6 +163,13 @@ export class appMenu extends connect(store, MENU, TOGGLE)(LitElement) {
         });
         e.currentTarget.classList.add("seleccionado")
 
+        dataLayer.push({
+            event: 'pageview',
+            page: {
+                path: '/' + e.currentTarget.value,
+
+            }
+        });
         window.estado = {
             option: e.currentTarget.value,
             suboption: "",
@@ -185,6 +192,7 @@ export class appMenu extends connect(store, MENU, TOGGLE)(LitElement) {
         window.open("http://ikeargentina.com.ar/pruebaweb/Presentacion.pdf", "Presentacion")
         this.selectMenu(e)
         this.open = false
+
         store.dispatch(toggleMenu())
     }
 
