@@ -41,8 +41,35 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <link rel="stylesheet" href="/css/explorer.css">
+    <div id="explorer" style="display:none;">
+        <div class="nav-container">
+            <div class="wrapper">
+                <div class="logo" id="logo"></div>
+                <ul class="nav-items">
+                    <li>Institucional</li>
+                    <li>Productos</li>
+                    <li>Atención al Cliente</li>
+                    <li>¿Querés sumarte al equipo Iké?</li>
+                    <li>¿No sos cliente? Contactanos</li>
+            </div>
+        </div>
+    </div>
 
     <view-manager></view-manager>
 </body>
+<script>
+    if (navigator.userAgent.toLocaleLowerCase().indexOf("edge") > -1 || navigator.userAgent.toLocaleLowerCase().indexOf(
+            "trident") > -1) {
+        var explorer = document.getElementById("explorer")
+        explorer.style.visibility = "block"
+    }
+    /* var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+            if (es_firefox) {
+                window.open("https://web.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
+            } else {
+                window.open("https://api.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
+            } */
+</script>
 
 </html>
