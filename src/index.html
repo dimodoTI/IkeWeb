@@ -40,19 +40,48 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBLZK6Q" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <link rel="stylesheet" type="text/css" href="explorer.css">
 
-    <link rel="stylesheet" href="/css/explorer.css">
+
+
     <div id="explorer" style="display:none;">
         <div class="nav-container">
-            <div class="wrapper">
-                <div class="logo" id="logo"></div>
-                <ul class="nav-items">
-                    <li>Institucional</li>
-                    <li>Productos</li>
-                    <li>Atención al Cliente</li>
-                    <li>¿Querés sumarte al equipo Iké?</li>
-                    <li>¿No sos cliente? Contactanos</li>
+
+            <!--             <div class="boton ">
+               <svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 2000 2000">
+                    <defs></defs>
+                    <path d="M711.76,1036.7l413.1-413.11h110L821.76,1036.7,1110.07,1357H996.85Z"></path>
+                    <path d="M591.54,1359V924.05H675.9V1359Z"></path>
+                    <path d="M344.63,1359V924.05H429V1359Z"></path>
+                    <path
+                        d="M1655.37,1088.21c0-206.33-93.17-319.93-262.23-319.93-176.17,0-256.45,157.66-256.45,304.08,0,151.35,77.92,304.05,251.92,304.05,140,0,225-65.45,259.81-200.29l.95-3.36h-77.08l-.42,2.14c-17.12,78.84-83.64,133.87-161.72,133.87-120.1,0-190.73-79.47-194.21-217.92h439.43Zm-437.09-65c8.89-87,59.87-187.32,176-187.32,106.08,0,172.07,68.38,181.68,187.32Z">
+                    </path>
+                    <rect x="344.63" y="777.31" width="84.38" height="82.72"></rect>
+                    <polygon points="1469.53 706.84 1551.78 623.87 1653.57 623.87 1571.35 706.84 1469.53 706.84">
+                    </polygon>
+                </svg>
+                
+            </div> -->
+
+            <div class="boton ">
+                <div>Institucional</div>
             </div>
+            <div class="boton">
+                <div>Productos</div>
+            </div>
+
+            <div class="boton">
+
+                <div>Atención al Cliente</div>
+            </div>
+            <div class="boton">
+                <div>¿Querés sumarte al equipo Iké?</div>
+            </div>
+            <div class="boton">
+                <div>¿No sos cliente? Contactanos</div>
+            </div>
+
+
         </div>
     </div>
 
@@ -62,7 +91,7 @@
     if (navigator.userAgent.toLocaleLowerCase().indexOf("edge") > -1 || navigator.userAgent.toLocaleLowerCase().indexOf(
             "trident") > -1) {
         var explorer = document.getElementById("explorer")
-        explorer.style.visibility = "block"
+        explorer.style.display = "block"
     }
     /* var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
             if (es_firefox) {

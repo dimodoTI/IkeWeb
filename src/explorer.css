@@ -1,0 +1,46 @@
+.nav-container {
+    position: relative;
+    display: flex;
+    -ms-grid-columns: 100px 100px 100px;
+    grid-auto-flow: column;
+    grid-gap: 1rem;
+    background-color: rgb(0, 0, 0);
+    /* align-items:baseline; */
+    justify-items: center;
+    padding-top: .5rem;
+    /* padding-bottom: .5rem; */
+    z-index: 10;
+    align-items: center;
+    padding-bottom: 0;
+
+
+}
+.boton {
+    display:flex;
+    grid-auto-flow:column;
+    align-items:center;
+    grid-gap:.3rem;
+    cursor:pointer;
+    color:white;
+    fill:white;
+    stroke:white
+    
+ }
+.itemMenu {
+    display: flex;
+    color: white;
+
+}
+
+
+@font-face {
+    font-family: 'Avenir', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    src: url('../assets/fonts/AvenirLTStd-Roman.otf') format('otf');
+}
+
+html {
+    font-family: 'Avenir', sans-serif;
+
+}
