@@ -1,6 +1,6 @@
-.container{
-    display:flex;
-    margin:0;
+.container {
+    display: flex;
+    margin: 0;
     padding: 0;
     flex-direction: column;
 
@@ -25,12 +25,12 @@
     padding-left: 0;
     margin-left: 0;
     width: 100vw;
-    top:0;  
-    left:0;
+    top: 0;
+    left: 0;
 }
 
-.cuerpoFrame{
-  
+.cuerpoFrame {
+
     width: 100vw;
     height: 95vh;
     margin-top: 5vh;
@@ -76,7 +76,7 @@ html {
 
 }
 
-.submenuContainer {   
+.submenuContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -108,7 +108,7 @@ html {
     flex-direction: column;
     margin-left: 3rem;
     padding: 0.5rem;
-    top:50%;
+    top: 50%;
 
 
 }
@@ -128,11 +128,11 @@ html {
     justify-self: start;
     font-weight: normal;
     text-align: justify;
-   width: 45%;
-   padding-bottom: 1rem;
+    width: 45%;
+    padding-bottom: 1rem;
 }
 
-.logoBottom{
+.logoBottom {
     position: absolute;
     bottom: 4rem;
     right: 4rem;
@@ -173,25 +173,26 @@ html {
     font-size: 2rem;
     font-weight: bold;
     color: white;
-    padding-bottom:1.3rem
+    padding-bottom: 1.3rem
 }
 
 
-  ul{
-    color:white;
-     list-style:none;
-     margin:0;
-     padding:0;
-     font-size: 1.5rem;
-  }
+ul {
+    color: white;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+}
 
-    
-  ul li::before {
-     content: "\2022";
-     color:#ff6c0c;;
-     width: 1rem;
 
-     }
+ul li::before {
+    content: "\2022";
+    color: #ff6c0c;
+    ;
+    width: 1rem;
+
+}
 
 .conocerMas {
     color: rgb(255, 108, 12);
@@ -199,12 +200,12 @@ html {
     font-size: 1.8rem;
     cursor: pointer;
     padding-left: 3rem;
-    padding-top:1.5rem;
+    padding-top: 1.5rem;
 }
 
 .contenedor {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     width: 47%;
     padding: 4rem;
 }
@@ -214,36 +215,36 @@ html {
     background-color: #ff6c0c;
     align-items: center;
     height: 6rem;
-    flex-direction:row;
+    flex-direction: row;
     font-size: 1.6rem;
 }
 
 
-.telefonoservicio{
-    cursor:none;
-    color:white;
-    padding-left:1rem;
+.telefonoservicio {
+    cursor: none;
+    color: white;
+    padding-left: 1rem;
     font-weight: bold;
 }
-    
-.telefonoservicio svg{
-    fill:#e7e6e6;
+
+.telefonoservicio svg {
+    fill: #e7e6e6;
     height: 5rem;
     width: 5rem;
-    padding:3rem;
-    z-index: 100;      
+    padding: 3rem;
+    z-index: 100;
 }
 
-.contentContact{
+.contentContact {
     display: flex;
     flex-direction: column;
     width: 47%;
     flex-wrap: nowrap;
-    color:white;
+    color: white;
 }
 
 .some-page-wrapper {
-    margin: 1rem;   
+    margin: 1rem;
 }
 
 .row {
@@ -251,89 +252,88 @@ html {
     flex-direction: row;
     flex-wrap: nowrap;
     width: 100%;
-    padding-bottom: 3rem;  
-    cursor: pointer; 
+    padding-bottom: 3rem;
+    cursor: pointer;
 }
 
 .column {
     display: flex;
     flex-direction: column;
     color: white;
-    font-size:1.5rem;
+    font-size: 1.5rem;
 }
 
-.columnLeyenda{
-    height:100%;
+.columnLeyenda {
+    height: 100%;
     width: 22rem;
-    text-align: left; 
+    text-align: left;
     padding-left: 1.5rem;
 }
 
-.columnIcon{
-    height:  100%;
+.columnIcon {
+    height: 100%;
 }
 
-.columnIcon svg{
-    fill:white;
+.columnIcon svg {
+    fill: white;
     height: 5rem;
     width: 5rem;
 }
 
-.telefonoWA{
+.telefonoWA {
     color: #ff6c0c;
-    font-size:1.7rem;
+    font-size: 1.7rem;
 }
 
 
-.tituloLeyenda{
+.tituloLeyenda {
     font-weight: bold;
 }
 
 .subcabecera {
-  
+
     font-size: 1.3rem;
     color: white;
-    padding-bottom:3rem;
+    padding-bottom: 3rem;
 }
 
-.divTexto{
+.divTexto {
     padding-bottom: 1rem;
 }
 
-.texto{
+.texto {
     font-size: 1.5rem;
-    color:black;
+    color: black;
     height: 4rem;
     width: 80%;
-    border:none;
+    border: none;
 
 }
 
-.botonenviar{
-    display:flex;
-    width:80%;
-    background-color:#ff6c0c;
-    align-items:center;
-    justify-content:center;
-    height:4rem;
-    cursor:pointer;
+.botonenviar {
+    display: flex;
+    width: 80%;
+    background-color: #ff6c0c;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    cursor: pointer;
     font-size: 1.5rem;
 
 }
 
-textarea{
+textarea {
     font-family: 'Avenir', sans-serif;
-    font-size:1.5rem;
-    border:none
-    
+    font-size: 1.5rem;
+    border: none
 }
 
 input::-ms-input-placeholder {
-    font-size:.8rem;
-    color:#ff6c0c;
+    font-size: .8rem;
+    color: #ff6c0c;
 }
 
 
-  textarea::-ms-input-placeholder {
-    color: #ff6c0c;  
-  }
+textarea::-ms-input-placeholder {
+    color: #ff6c0c;
+}
