@@ -2,29 +2,14 @@
 <html lang="en">
 
 <head>
-    <!-- Google Tag Manager -->
-    <script>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-KBLZK6Q');
-    </script>
-    <!-- End Google Tag Manager -->
+
 
 
     <title>IKE</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
     <meta name="viewport"
         content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -33,22 +18,20 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" type="text/css" href="edgePages/edgeStyles.css">
 </head>
 
-<body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBLZK6Q" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <link rel="stylesheet" type="text/css" href="explorer.css">
+<body style="width:100%;height: 100%; background-size: 100vw 100vh;margin: 0;padding: 0;">
 
 
 
-    <div id="explorer" style="display:none;">
+
+
+    <div id="explorer" class="container">
         <div class="nav-container">
 
-            <!--             <div class="boton ">
-               <svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 2000 2000">
+            <div class="boton " onclick="selectMenu('INSTITUCIONAL')">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 2000 2000">
                     <defs></defs>
                     <path d="M711.76,1036.7l413.1-413.11h110L821.76,1036.7,1110.07,1357H996.85Z"></path>
                     <path d="M591.54,1359V924.05H675.9V1359Z"></path>
@@ -60,45 +43,61 @@
                     <polygon points="1469.53 706.84 1551.78 623.87 1653.57 623.87 1571.35 706.84 1469.53 706.84">
                     </polygon>
                 </svg>
-                
-            </div> -->
 
-            <div class="boton ">
+            </div>
+
+            <div class="boton" onclick="presentacion()">
                 <div>Institucional</div>
             </div>
-            <div class="boton">
+            <div class="boton" onclick="selectMenu('PRODUCTOS')">
                 <div>Productos</div>
             </div>
 
-            <div class="boton">
+            <div class="boton" onclick="selectMenu('ATENCION_CLIENTE')">
 
                 <div>Atención al Cliente</div>
             </div>
-            <div class="boton">
+            <div class="boton" onclick="selectMenu('SUMARTE')">
                 <div>¿Querés sumarte al equipo Iké?</div>
             </div>
-            <div class="boton">
+            <div class="boton" onclick="selectMenu('CONTACTANOS')">
                 <div>¿No sos cliente? Contactanos</div>
             </div>
-
-
         </div>
+
+        <div id="slides" class="cuerpoFrame">
+            <iframe id="slide" frameborder="0" style="width:100%; height:100%;padding:0;margin: 0;border: none;"
+                src="edgePages/institucional.html"></iframe>
+        </div>
+
+
+
+
+
+
     </div>
 
     <view-manager></view-manager>
 </body>
-<script>
+<script type="text/javascript">
     if (navigator.userAgent.toLocaleLowerCase().indexOf("edge") > -1 || navigator.userAgent.toLocaleLowerCase().indexOf(
             "trident") > -1) {
         var explorer = document.getElementById("explorer")
-        explorer.style.display = "block"
+        explorer.style.display = "flex"
     }
-    /* var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-            if (es_firefox) {
-                window.open("https://web.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
-            } else {
-                window.open("https://api.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
-            } */
+
+
+
+    function presentacion(e) {
+        window.open("http://ikeargentina.com.ar/pruebaweb/Presentacion.pdf", "Presentacion")
+
+    }
+
+
+    function selectMenu(opcion) {
+        var cuerpo = document.getElementById("slide")
+        cuerpo.src = "edgePages/" + opcion.toLocaleLowerCase() + ".html"
+    }
 </script>
 
 </html>
