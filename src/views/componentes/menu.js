@@ -136,7 +136,7 @@ export class appMenu extends connect(store, MENU, TOGGLE)(LitElement) {
                 <div>Institucional</div>
             </div>
             <div class="boton" @click="${this.selectMenu}" .value="${"PRODUCTOS"}" .autoClose="${false}">
-                <div>Productos</div>
+                <div>Planes</div>
             </div>
             <div class="boton" @click="${this.selectMenu}" .value="${"ATENCION_CLIENTE"}" .autoClose="${true}">
                 

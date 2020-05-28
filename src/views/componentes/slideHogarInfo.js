@@ -54,7 +54,7 @@ export class slideHogarInfo extends connect(store, OPCION_SELECCIONADA)(LitEleme
         
         <div class="cartel" media-size="${this.mediaSize}">
             <div class="tituloInfo" media-size="${this.mediaSize}">
-                <div >HOGAR</div>
+                <div >PLAN HOGAR</div>
             </div>
             <div class="leyenda" media-size="${this.mediaSize}">
                 Te asistimos en tu hogar con personal

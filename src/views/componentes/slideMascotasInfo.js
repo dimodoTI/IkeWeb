@@ -52,7 +52,7 @@ export class slideMascotasInfo extends connect(store, OPCION_SELECCIONADA)(LitEl
         return html `
         <div class="cartel"  media-size="${this.mediaSize}">
             <div class="tituloInfo"  media-size="${this.mediaSize}">
-                <div >MASCOTAS</div>
+                <div >PLAN MASCOTAS</div>
             </div>
             <div class="leyenda" style="width:90%" media-size="${this.mediaSize}">
                 Atendiendo a los más consentidos

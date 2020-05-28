@@ -61,7 +61,7 @@ export class slideBicicletas extends connect(store, OPCION_SELECCIONADA)(LitElem
     render() {
         return html `
         <div class="cartel" media-size = "${this.mediaSize}">
-        <div class = "opcion" media-size = "${this.mediaSize}">BICICLETAS</div>
+        <div class = "opcion" media-size = "${this.mediaSize}">PLAN BICICLETAS</div>
             <div class = "titulo" media-size = "${this.mediaSize}" >
                 <div media-size="${this.mediaSize}">
                     ¿NECESITAS AYUDA CON TU BICICLETA?

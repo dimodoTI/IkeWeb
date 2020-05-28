@@ -155,4 +155,19 @@ export const carteles = css `
             padding-left:1rem;
             color:#FF440D
         }
+
+        .logoSociales{
+            .logoBottom{
+            position: absolute;
+            bottom: 4rem;
+            left: 4rem;
+        }
+
+        .logoSociales svg{
+            height: 52px;
+            width: 52px;
+            fill: white;
+            stroke: white;
+        }
+        }
 `

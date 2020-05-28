@@ -59,7 +59,7 @@ export class slideMascotas extends connect(store, OPCION_SELECCIONADA)(LitElemen
     render() {
         return html `
             <div class="cartel" media-size="${this.mediaSize}" class="recuadro">
-                <div class="opcion" media-size="${this.mediaSize}">MASCOTAS</div>
+                <div class="opcion" media-size="${this.mediaSize}">PLAN MASCOTAS</div>
                 <div class="titulo" media-size="${this.mediaSize}">
                     <div >¿TU AMIGO TE NECESITA</div>
                     <div >Y NO SABES QUÉ HACER?</div>

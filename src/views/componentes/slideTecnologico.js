@@ -56,7 +56,7 @@ export class slideTecnologico extends connect(store, OPCION_SELECCIONADA)(LitEle
         return html `
 
             <div class="cartel" media-size="${this.mediaSize}">
-                <div class="opcion"  media-size="${this.mediaSize}">TECNOLÓGICO</div>
+                <div class="opcion"  media-size="${this.mediaSize}">PLAN TECNOLÓGICO</div>
                 <div class="titulo"  media-size="${this.mediaSize}">
                     <div >¿SE TE CUELGA LA COMPUTADORA?</div>
                     <div >¿DESCARGASTE UN PROBLEMA?</div>

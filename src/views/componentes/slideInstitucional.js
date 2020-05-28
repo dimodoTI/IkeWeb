@@ -26,6 +26,10 @@ import {
     selectSubmenu
 } from "../../redux/actions/ui";
 
+import {
+    redesSociales
+} from "../componentes/redessociales"
+
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
 const MEDIA_SIZE = "ui.media.timeStamp"
 export class slideInstitucional extends connect(store, OPCION_SELECCIONADA, MEDIA_SIZE)(LitElement) {
@@ -79,7 +83,9 @@ export class slideInstitucional extends connect(store, OPCION_SELECCIONADA, MEDI
             </div>
             <div class="logoBottom" media-size="${this.mediaSize}">
                     ${IKEASISTENCIA}
-                </div>            
+                </div>   
+                
+                <redes-sociales></redes-sociales>
         `
     }
 

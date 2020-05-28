@@ -52,7 +52,7 @@ export class slideTecnologicoInfo extends connect(store, OPCION_SELECCIONADA)(Li
         return html `
         <div class="cartel"  media-size="${this.mediaSize}">
             <div class="tituloInfo"  media-size="${this.mediaSize}">
-                <div >TECNOLÓGICO</div>
+                <div >PLAN TECNOLÓGICO</div>
             </div>
             <div class="leyenda" style="width:100%"  media-size="${this.mediaSize}">
                 Conectándote con lo último en tecnología

@@ -58,7 +58,7 @@ export class slideVial extends connect(store, OPCION_SELECCIONADA)(LitElement) {
         return html `
             
             <div class="cartel" media-size="${this.mediaSize}" >
-                <div class="opcion" media-size="${this.mediaSize}">VIAL</div>
+                <div class="opcion" media-size="${this.mediaSize}">PLAN VIAL</div>
                 <div class="titulo" media-size="${this.mediaSize}">
                     <div >¿PROBLEMAS CON TU AUTO?</div>
                     <div >¿A KM DE LA SOLUCIÓN?</div>

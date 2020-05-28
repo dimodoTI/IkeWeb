@@ -52,7 +52,7 @@ export class slideBicicletasInfo extends connect(store, OPCION_SELECCIONADA)(Lit
         return html `
         <div class="cartel" media-size="${this.mediaSize}">
             <div class="tituloInfo" media-size="${this.mediaSize}">
-                <div >BICICLETAS</div>
+                <div >PLAN BICICLETAS</div>
             </div>
             <div class="leyenda" style="width:100%">
                 Que nada detenga tus ganas de cuidar el medioambiente

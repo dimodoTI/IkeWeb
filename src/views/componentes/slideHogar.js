@@ -57,7 +57,7 @@ export class slideHogar extends connect(store, OPCION_SELECCIONADA)(LitElement) 
         return html `
 
         <div class = "cartel" media-size = "${this.mediaSize}" >
-            <div class = "opcion" media-size = "${this.mediaSize}" > HOGAR </div> 
+            <div class = "opcion" media-size = "${this.mediaSize}" >PLAN HOGAR </div> 
                 <div class = "titulo" media-size = "${this.mediaSize}" >
                     <div> ¿PROBLEMAS IMPREVISTOS ? </div> 
                     <div> ¿TU CASA TE DESBORDA ? </div> 
@@ -96,7 +96,6 @@ export class slideHogar extends connect(store, OPCION_SELECCIONADA)(LitElement) 
 
     static get properties() {
         return {
-
             mediaSize: {
                 type: String,
                 reflect: true,

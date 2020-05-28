@@ -52,7 +52,7 @@ export class slideVialInfo extends connect(store, OPCION_SELECCIONADA)(LitElemen
         return html `
         <div class="cartel"  media-size="${this.mediaSize}">
             <div class="tituloInfo"  media-size="${this.mediaSize}">
-                <div >VIAL</div>
+                <div >PLAN VIAL</div>
             </div>
             <div class="leyenda"  media-size="${this.mediaSize}">
                 Con vos para solucionar
