@@ -86,11 +86,26 @@ export class slideAtencion extends connect(store, OPCION_SELECCIONADA, TOGGLE)(L
             grid-auto-rows: 1fr auto 4fr;
 
         }
+        .atencion {
+            display:grid;
+            grid-auto-flow:row
+        }
 
         .titulo[media-size="small"]{
             justify-self: start;
+             padding-bottom: .3rem;
+             padding-left:1rem;
+        }
+        .subtitulo{
+            display:grid;
+            font-size:.65rem;
+            color:white;
+        }
+        .subtitulo[media-size="small"]{
+            justify-self: start;
              padding-bottom: 3rem;
              padding-left:1rem;
+             width:70%;
         }
 
         .solicitarservicio{
@@ -141,7 +156,12 @@ export class slideAtencion extends connect(store, OPCION_SELECCIONADA, TOGGLE)(L
                 </div>
 
             </div>
-            <div class="titulo" media-size="${this.mediaSize}">POR ATENCIÓN AL CLIENTE CONTACTANOS:</div>
+            <div class="atencion">
+                <div class="titulo" media-size="${this.mediaSize}">POR ATENCIÓN AL CLIENTE CONTACTANOS:</div>
+                <div class="subtitulo" media-size="${this.mediaSize}">
+                    Nuestro horario de Atención al Cliente para realizar modificaciones en la cuenta es de lunes a viernes de 9 a 18 hs.
+                </div>
+                </div>
             <app-contactosnuevos id="contactos" media-size="${this.mediaSize}"></app-contactosnuevos>
         </div>
         <div class="logoBottom" media-size="${this.mediaSize}">

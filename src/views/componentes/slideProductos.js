@@ -48,10 +48,32 @@ export class slideProductos extends connect(store, OPCION_SELECCIONADA)(LitEleme
         :host([media-size="small"]){
             background-image:var(--fondo-institucionalphone)
         }
-        `
+
+        .prod[media-size="small"]{
+            width:80%;
+            display:grid
+        }
+        
+        .prod {
+            width:50%
+        }`
     }
     render() {
+
+
         return html `
+            <div class="cartel" media-size="${this.mediaSize}" >
+                <div class="titulo prod" media-size="${this.mediaSize}">
+                    POR UNA PEQUEÑA CUOTA MENSUAL TE OFRECEMOS PLANES
+                    QUE RESUELVEN LOS IMPREVISTOS DE TU DIA A DIA
+                </div>
+                <div class="leyenda" media-size="${this.mediaSize}">
+                Nuestra idea es siempre estar ahí, para hacerte la vida más fácil. Estamos al lado tuyo cuando vos, tu familia, tu mascota, tu auto o tu hogar nos necesiten. Para que mientras nosotros nos ocupamos del problema, vos puedas seguir tranquilamente con tu vida
+
+                </div>
+                <!-- <div class="masinfo" @click="${this.masInfo}"  media-size="${this.mediaSize}">Mas Información</div> -->
+            </div>
+
         <div class="logoBottom" media-size="${this.mediaSize}">
             ${IKEASISTENCIA}
         </div>              

@@ -236,6 +236,7 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
         }).then(
             (response) => {
                 //console.log(response);
+
                 alert("Su consulta ha sido enviada y será contactado por un operador IKE")
                 let nombre = this.shadowRoot.querySelector("#nombre")
                 let email = this.shadowRoot.querySelector("#mail")

@@ -189,7 +189,7 @@ export class appMenu extends connect(store, MENU, TOGGLE)(LitElement) {
     }
 
     presentacion(e) {
-        window.open("http://ikeargentina.com.ar/pruebaweb/Presentacion.pdf", "Presentacion")
+        window.open("http://ikeargentina.com.ar/pruebaweb/Presentacion.pdf", "_self")
         this.selectMenu(e)
         this.open = false
 
