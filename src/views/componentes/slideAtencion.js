@@ -98,11 +98,12 @@ export class slideAtencion extends connect(store, OPCION_SELECCIONADA, TOGGLE)(L
         }
         .subtitulo{
             display:grid;
-            font-size:.65rem;
+            font-size:.75rem;
             color:white;
         }
         .subtitulo[media-size="small"]{
             justify-self: start;
+            font-size:1rem;
              padding-bottom: 3rem;
              padding-left:1rem;
              width:70%;

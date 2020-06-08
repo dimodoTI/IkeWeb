@@ -77,6 +77,10 @@ import {
     slideSumarte
 } from "../componentes/slideSumarte"
 
+import {
+    slidePresentacion
+} from "../componentes/slidePresentacion"
+
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
 
 export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
@@ -104,6 +108,7 @@ export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
         }
 
         :host(:not([currentslide="INSTITUCIONAL"])) #institucional,
+        :host(:not([currentslide="PRESENTACION"])) #presentacion, 
         :host(:not([currentslide="PRODUCTOS"])) #productos,
         :host(:not([currentslide="PRODUCTOSHOGAR"])) #hogar,
         :host(:not([currentslide="PRODUCTOSVIAL"])) #vial,
@@ -145,6 +150,7 @@ export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
     render() {
         return html `
         <slide-institucional class="slide" id="institucional" media-size="${this.mediaSize}"></slide-institucional>
+        <slide-presentacion class="slide" id="presentacion" media-size="${this.mediaSize}"></slide-presentacion>
         <!-- productos -->
         <slide-productos class="slide" id="productos" media-size="${this.mediaSize}"></slide-productos>
         

@@ -13,7 +13,8 @@ import {
     LINKE,
     FACE,
     INSTA,
-    TWIT
+    TWIT,
+    EMAIL
 } from "../../../assets/icons/icons";
 
 import {
@@ -26,6 +27,10 @@ import {
 import {
     boton
 } from "../css/boton"
+
+import {
+    selectMenu
+} from "../../redux/actions/ui"
 
 const MEDIA_SIZE = "ui.media.timeStamp"
 export class redesSociales extends connect(store, MEDIA_SIZE)(LitElement) {
@@ -121,6 +126,8 @@ export class redesSociales extends connect(store, MEDIA_SIZE)(LitElement) {
         <div class="boton botonete" media-size="${this.mediaSize}" @click="${this.facebook}">${FACE}</div>
         <div class="boton botonete" media-size="${this.mediaSize}" @click="${this.instagram}">${INSTA}</div>
         <div class="boton botonete" media-size="${this.mediaSize}" @click="${this.twiter}">${TWIT}</div>
+        <div class="boton botonete" media-size="${this.mediaSize}" @click="${this.selectMenu}" .value="${"FORMULARIOINFO"}">${EMAIL}</div>
+        
         `
 
     }
@@ -151,6 +158,18 @@ export class redesSociales extends connect(store, MEDIA_SIZE)(LitElement) {
     instagram(e) {
         window.open("https://www.instagram.com/ike.argentina/?hl=es-la")
     }
+
+
+    selectMenu(e) {
+        const botones = this.shadowRoot.querySelectorAll(".boton")
+        botones.forEach((button) => {
+            button.classList.remove("seleccionado")
+        });
+        e.currentTarget.classList.add("seleccionado")
+        store.dispatch(selectMenu(e.currentTarget.value))
+    }
+
+
 
 
 
