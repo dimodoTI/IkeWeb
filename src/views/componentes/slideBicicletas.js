@@ -69,8 +69,11 @@ export class slideBicicletas extends connect(store, OPCION_SELECCIONADA)(LitElem
             </div>
             <div class="leyenda" media-size="${this.mediaSize}" style="width:80%">
                 Andá tranquilo que nosotros te brindamos asistencia las 24 horas, los 365 días del año
-        </div>
-            <div class="masinfo" @click="${this.masInfo}" media-size="${this.mediaSize}">Mas Información</div>
+            </div>
+            <div style="display:grid;  grid-auto-flow:row;grid-gap:.7rem;">
+                <div class="masinfo" @click="${this.masInfo}" media-size="${this.mediaSize}">Mas Información</div>
+                <div class="masinfo" @click="${this.conocerMas}" media-size="${this.mediaSize}">CONTRATÁ</div>
+            </div>
         </div>
 
         <div class="logoBottom" media-size="${this.mediaSize}">
@@ -79,6 +82,11 @@ export class slideBicicletas extends connect(store, OPCION_SELECCIONADA)(LitElem
 
         `
     }
+
+    conocerMas() {
+        window.open("https://ikeasistencia.contactese.com/bicicletas/")
+    }
+
     masInfo(e) {
         window.estado = {
             option: window.estado.option,

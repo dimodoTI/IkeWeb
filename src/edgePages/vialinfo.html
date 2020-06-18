@@ -76,7 +76,7 @@
             <li> Suministro de combustible</li>
             <li> Traslado de acompañantes</li>
         </ul>
-
+        <div class="conocerMas" onclick="contrata()">CONTRATA</div>
     </div>
     <div class="logoBottom">
         <svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 2000 2000">
@@ -92,6 +92,20 @@
     </div>
 
 </body>
+
+</html>
+
+<script>
+    function contrata() {
+
+        var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+        if (es_firefox) {
+            window.open("https://web.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
+        } else {
+            window.open("https://api.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
+        }
+    }
+</script>
 
 
 

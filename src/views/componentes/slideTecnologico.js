@@ -68,7 +68,10 @@ export class slideTecnologico extends connect(store, OPCION_SELECCIONADA)(LitEle
                      pueden solucionar, coordinamos la atención
                     personalizada            
                 </div>
-                <div class="masinfo" @click="${this.masInfo}"  media-size="${this.mediaSize}">Mas Información</div>
+                <div style="display:grid;  grid-auto-flow:row;grid-gap:.7rem;">
+                    <div class="masinfo" @click="${this.masInfo}" media-size="${this.mediaSize}">Mas Información</div>
+                    <div class="masinfo" @click="${this.conocerMas}" media-size="${this.mediaSize}">CONTRATÁ</div>
+                </div>
             </div>
 
         <div class="logoBottom" media-size="${this.mediaSize}">
@@ -76,6 +79,15 @@ export class slideTecnologico extends connect(store, OPCION_SELECCIONADA)(LitEle
         </div>       
       
         `
+    }
+
+    conocerMas() {
+        var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+        if (es_firefox) {
+            window.open("https://web.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
+        } else {
+            window.open("https://api.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
+        }
     }
 
     masInfo(e) {

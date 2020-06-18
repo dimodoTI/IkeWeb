@@ -73,9 +73,10 @@ export class slideMascotas extends connect(store, OPCION_SELECCIONADA)(LitElemen
                     estén acompañados
                 </div>
                  
-                <div class="masinfo" @click="${this.masInfo}" media-size="${this.mediaSize}">
-                    Mas Información
-                </div>
+                <div style="display:grid;  grid-auto-flow:row;grid-gap:.7rem;">
+                    <div class="masinfo" @click="${this.masInfo}" media-size="${this.mediaSize}">Mas Información</div>
+                    <div class="masinfo" @click="${this.conocerMas}" media-size="${this.mediaSize}">CONTRATÁ</div>
+            </div>
             </div>
            
         <div class="logoBottom" media-size="${this.mediaSize}">
@@ -84,6 +85,11 @@ export class slideMascotas extends connect(store, OPCION_SELECCIONADA)(LitElemen
              
         `
     }
+
+    conocerMas() {
+        window.open("https://www.ikeasistencia.contactese.com/mascotas/")
+    }
+
     masInfo(e) {
         window.estado = {
             option: window.estado.option,

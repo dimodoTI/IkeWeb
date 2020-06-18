@@ -14,7 +14,8 @@ import {
     FACE,
     INSTA,
     TWIT,
-    EMAIL
+    EMAIL,
+    WHATSAPP
 } from "../../../assets/icons/icons";
 
 import {
@@ -127,7 +128,7 @@ export class redesSociales extends connect(store, MEDIA_SIZE)(LitElement) {
         <div class="boton botonete" media-size="${this.mediaSize}" @click="${this.instagram}">${INSTA}</div>
         <div class="boton botonete" media-size="${this.mediaSize}" @click="${this.twiter}">${TWIT}</div>
         <div class="boton botonete" media-size="${this.mediaSize}" @click="${this.selectMenu}" .value="${"FORMULARIOINFO"}">${EMAIL}</div>
-        
+        <div class="boton botonete" media-size="${this.mediaSize}" @click="${this.whatsapp}">${WHATSAPP}</div>
         `
 
     }
@@ -141,7 +142,17 @@ export class redesSociales extends connect(store, MEDIA_SIZE)(LitElement) {
     }
 
 
+    whatsapp() {
 
+        var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+        if (es_firefox) {
+            window.open("https://web.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
+        } else {
+            window.open("https://api.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
+        }
+
+
+    }
 
     linkedin(e) {
         window.open("https://www.linkedin.com/company/ike-argentina/?viewAsMember=true")

@@ -62,13 +62,22 @@ export class slideTecnologicoInfo extends connect(store, OPCION_SELECCIONADA)(Li
             <li media-size="${this.mediaSize}"> Arreglo de pantalla de Celulares</li>
             <li  media-size="${this.mediaSize}"> Configuración remota de equipos</li>   
         </ul>
-
+        <div class="conocerMas" @click="${this.conocerMas}" media-size="${this.mediaSize}">CONTRATÁ</div>
             
         </div>
         <div class="logoBottom" media-size="${this.mediaSize}">
             ${IKEASISTENCIA}
         </div>              
         `
+    }
+
+    conocerMas() {
+        var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+        if (es_firefox) {
+            window.open("https://web.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
+        } else {
+            window.open("https://api.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
+        }
     }
 
     stateChanged(state, name) {}

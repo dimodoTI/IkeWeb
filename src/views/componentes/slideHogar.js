@@ -65,7 +65,10 @@ export class slideHogar extends connect(store, OPCION_SELECCIONADA)(LitElement) 
                 <div class = "leyenda" media-size = "${this.mediaSize}">
                     Si olvidas o perdés tu llave te enviamos un cerrajero, ante problemas eléctricos un especialista y si el goteo no te deja dormir de noche contás con nuestros plomeros de confianza 
                 </div>
-                <div class= "masinfo" @click = "${this.masInfo}" media-size = "${this.mediaSize}"> Mas Información </div>
+                <div style="display:grid;  grid-auto-flow:row;grid-gap:.7rem;">
+                    <div class="masinfo" @click="${this.masInfo}" media-size="${this.mediaSize}">Mas Información</div>
+                    <div class="masinfo" @click="${this.conocerMas}" media-size="${this.mediaSize}">CONTRATÁ</div>
+                </div>
             </div>
 
             <div class="logoBottom" media-size="${this.mediaSize}">
@@ -73,6 +76,9 @@ export class slideHogar extends connect(store, OPCION_SELECCIONADA)(LitElement) 
         </div>           
 
                 `
+    }
+    conocerMas() {
+        window.open("http://ikeargentina.com.ar/modulares/")
     }
 
     masInfo(e) {

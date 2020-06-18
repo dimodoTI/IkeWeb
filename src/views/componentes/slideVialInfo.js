@@ -73,6 +73,7 @@ export class slideVialInfo extends connect(store, OPCION_SELECCIONADA)(LitElemen
             <li media-size="${this.mediaSize}"> Suministro de combustible</li>
             <li media-size="${this.mediaSize}"> Traslado de acompañantes</li>  
         </ul>
+        <div class="conocerMas" @click="${this.conocerMas}" media-size="${this.mediaSize}">CONTRATÁ</div>
 
             
         </div>
@@ -80,6 +81,15 @@ export class slideVialInfo extends connect(store, OPCION_SELECCIONADA)(LitElemen
             ${IKEASISTENCIA}
         </div>              
         `
+    }
+
+    conocerMas() {
+        var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+        if (es_firefox) {
+            window.open("https://web.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
+        } else {
+            window.open("https://api.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
+        }
     }
 
     stateChanged(state, name) {}
