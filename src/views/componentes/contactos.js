@@ -240,7 +240,7 @@ export class appContactos extends connect(store)(LitElement) {
 
 
     redireccionCob() {
-        window.open("http://www.atencionike.com.ar/")
+        window.open("https://www.atencionike.com.ar/")
     }
 
     redireccionFac() {

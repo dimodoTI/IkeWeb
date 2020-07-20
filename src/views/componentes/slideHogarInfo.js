@@ -88,7 +88,7 @@ export class slideHogarInfo extends connect(store, OPCION_SELECCIONADA)(LitEleme
     }
 
     conocerMas() {
-        window.open("http://ikeargentina.com.ar/modulares/")
+        window.open("https://ikeargentina.com.ar/modulares/")
     }
 
     stateChanged(state, name) {}

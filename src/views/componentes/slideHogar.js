@@ -78,7 +78,7 @@ export class slideHogar extends connect(store, OPCION_SELECCIONADA)(LitElement) 
                 `
     }
     conocerMas() {
-        window.open("http://ikeargentina.com.ar/modulares/")
+        window.open("https://ikeargentina.com.ar/modulares/")
     }
 
     masInfo(e) {

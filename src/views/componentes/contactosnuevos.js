@@ -186,7 +186,9 @@ export class appContactosnuevos extends connect(store)(LitElement) {
         .icono2{
             height:2.5rem;
             width:2.5rem;
+            fill:white;
         }
+
 
         .question{
             color:white;
@@ -328,14 +330,14 @@ export class appContactosnuevos extends connect(store)(LitElement) {
 
 
     faqs(e) {
-        window.open("http://ikeargentina.com.ar/pruebaweb/FAQs.pdf", "FAQs")
+        window.open("https://www.ikeargentina.com.ar/institucional/Faqs.pdf", "FAQs")
         /*         this.selectMenu(e)
                 this.open = false
                 store.dispatch(toggleMenu()) */
     }
 
     redireccionCob() {
-        window.open("http://www.atencionike.com.ar/")
+        window.open("https://www.atencionike.com.ar/")
     }
 
     redireccionFac() {
