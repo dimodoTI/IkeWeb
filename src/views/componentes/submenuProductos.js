@@ -26,7 +26,12 @@ import {
     MASCOTAS,
     TECNOLOGICO,
     BICICLETAS,
-    BACK
+    BACK,
+    NEWHOGAR,
+    NEWVIAL,
+    NEWMASCOTAS,
+    NEWBICICLETAS,
+    NEWTECNOLOGICO
 } from "../../../assets/icons/icons"
 
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
@@ -82,6 +87,8 @@ export class submenuProductos extends connect(store, OPCION_SELECCIONADA)(LitEle
             padding-left:1rem;
             align-content:flex-start;
             justify-items:flex-start;
+            
+
         }
 
         :host([media-size="small"]) .vertical{
@@ -108,23 +115,23 @@ export class submenuProductos extends connect(store, OPCION_SELECCIONADA)(LitEle
         return html `
             <div class="boton back" @click="${e=>this.oculto=true}">${BACK}<div style="font-weight:bold;padding-left:1rem">PRODUCTOS</div> </div>
             <div class="boton vertical" @click="${this.selectMenu}" .value="${"HOGAR"}" media-size="${this.mediaSize}">
-                <div>${HOGAR}</div>
+                <div>${NEWHOGAR}</div>
                 <div class="subop"  media-size="${this.mediaSize}">Hogar</div>
             </div>
             <div class="boton vertical" @click="${this.selectMenu}" .value="${"VIAL"}" media-size="${this.mediaSize}">
-                <div>${VIAL}</div>
+                <div>${NEWVIAL}</div>
                 <div class="subop"  media-size="${this.mediaSize}">Vial</div>
             </div>
             <div class="boton vertical" @click="${this.selectMenu}" .value="${"MASCOTAS"}" media-size="${this.mediaSize}">
-                <div>${MASCOTAS}</div>
+                <div>${NEWMASCOTAS}</div>
                 <div class="subop"  media-size="${this.mediaSize}">Mascotas</div>
             </div>
             <div class="boton vertical"  @click="${this.selectMenu}" .value="${"BICICLETAS"}" media-size="${this.mediaSize}">
-                <div>${BICICLETAS}</div>
+                <div>${NEWBICICLETAS}</div>
                 <div class="subop"  media-size="${this.mediaSize}">Bicicletas</div>
             </div>            
             <div class="boton vertical" @click="${this.selectMenu}" .value="${"TECNOLOGICO"}" media-size="${this.mediaSize}">
-                <div>${TECNOLOGICO}</div>
+                <div>${NEWTECNOLOGICO}</div>
                 <div class="subop"  media-size="${this.mediaSize}">Tecnológico</div>
             </div>
   

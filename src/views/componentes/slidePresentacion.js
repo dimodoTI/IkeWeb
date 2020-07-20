@@ -37,7 +37,7 @@ export class slidePresentacion extends connect(store, OPCION_SELECCIONADA)(LitEl
         ${carteles}        
         :host{
             display:grid;
-            background-image: var(--fondo-tecnologico);
+            background-image: var(--fondo-institucional);
             background-size: 100% 100%;
             background-position: center;
             background-size: cover;
@@ -47,7 +47,7 @@ export class slidePresentacion extends connect(store, OPCION_SELECCIONADA)(LitEl
         }
 
         :host([media-size="small"]){         
-            background-image:var(--fondo-tecnologicophone);
+            background-image:var(--fondo-institucionalphone);
             background-repeat:no-repeat;
             background-position:center; 
             background-size:cover;       
@@ -56,7 +56,7 @@ export class slidePresentacion extends connect(store, OPCION_SELECCIONADA)(LitEl
     }
     render() {
         return html `
-        <iframe id="framePresentacion" style="height:100%;width:100%" src="http://www.ikeargentina.com.ar/pruebaweb/Presentacion.pdf"></iframe>
+        <iframe id="framePresentacion" style="height:100%;width:100%" src="https://www.ikeargentina.com.ar/institucional/Presentacion.pdf"></iframe>
 
             
   

@@ -81,6 +81,14 @@ import {
     slidePresentacion
 } from "../componentes/slidePresentacion"
 
+import {
+    slideIkemas
+} from "../componentes/slideIkemas"
+
+
+import {
+    slideIkemax
+} from "../componentes/slideIkemax"
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
 
 export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
@@ -123,6 +131,8 @@ export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
         :host(:not([currentslide="ATENCION_CLIENTE"])) #atencion,
         :host(:not([currentslide="COBERTURAINFO"])) #coberturainfo,
         :host(:not([currentslide="SUMARTE"])) #sumarte,
+        :host(:not([currentslide="IKEMAS"])) #ikemas,
+        :host(:not([currentslide="PRODUCTOSIKEMAX"])) #ikemax,
         :host(:not([currentslide="FORMULARIOINFO"])) #formularioinfo{
             opacity:0;
             z-index:-10
@@ -170,12 +180,16 @@ export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
         <slide-bicicletas class="slide" id="bicicletas" media-size="${this.mediaSize}"></slide-bicicletas>
         <slide-bicicletas-info class="slide" id="bicicletasinfo" media-size="${this.mediaSize}" ></slide-bicicletas-info>
 
+        <slide-ikemax class="slide" id="ikemax" media-size="${this.mediaSize}"></slide-ikemax>        
+
         <!-- Atencion Cliente -->
         <slide-atencion class="slide" id="atencion" media-size="${this.mediaSize}"></slide-atencion>
 
         <slide-cobertura class="slide" id="coberturainfo" media-size="${this.mediaSize}"></slide-cobertura>
         <slide-formulario-info class="slide" id="formularioinfo"  media-size="${this.mediaSize}"></slide-formulario-info>
         <slide-sumarte class="slide" id="sumarte" media-size="${this.mediaSize}"></slide-sumarte>
+        <slide-ikemas class="slide" id="ikemas" media-size="${this.mediaSize}"></slide-ikemas>>
+
         `
     }
 

@@ -7,10 +7,11 @@ export const boton = css `
      
            fill:var(--color-destacado);
            stroke:var(--color-destacado);
-           color: var(--color-destacado);
-           
+           color: var(--color-destacado);           
         }
+
         .boton {
+
            display:grid;
            grid-auto-flow:column;
            align-items:center;
@@ -18,7 +19,19 @@ export const boton = css `
            cursor:pointer;
            color:white;
            fill:white;
-           stroke:white
-           
+           stroke:white;           
+        }
+
+        .boton svg {
+         width:52px;
+           height:52px;
+           fill:white;
+           stroke:white; 
+        }   
+
+        .boton:hover svg{
+         fill:var(--color-destacado);
+           stroke:var(--color-destacado);
+           color: var(--color-destacado);     
         }
 `

@@ -76,6 +76,8 @@ export class slideBicicletasInfo extends connect(store, OPCION_SELECCIONADA)(Lit
     conocerMas() {
         window.open("https://ikeasistencia.contactese.com/bicicletas/")
     }
+
+
     stateChanged(state, name) {}
 
     static get properties() {

@@ -3,24 +3,19 @@
 
 <head>
 
-    <!-- Google Tag Manager -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172712176-1"></script>
     <script>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-KBLZK6Q');
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-172712176-1');
     </script>
-    <!-- End Google Tag Manager -->
+
 
     <title>IKE</title>
     <meta charset="UTF-8">
@@ -73,6 +68,10 @@
                 <div>Contratá tu Plan</div>
             </div>
 
+            <div class="boton" onclick="llamaIkemas()">
+                <div>Ike+ Beneficios</div>
+            </div>
+
             <div class="boton" onclick="selectMenu('ATENCION_CLIENTE')">
 
                 <div>Atención al Cliente</div>
@@ -109,7 +108,7 @@
 
 
     function presentacion(e) {
-        window.open("http://ikeargentina.com.ar/pruebaweb/Presentacion.pdf", "Presentacion")
+        window.open("https://www.ikeargentina.com.ar/institucional/presentacion.pdf", "Presentacion")
 
     }
 
@@ -117,6 +116,11 @@
     function selectMenu(opcion) {
         var cuerpo = document.getElementById("slide")
         cuerpo.src = "edgePages/" + opcion.toLocaleLowerCase() + ".html"
+    }
+
+    function llamaIkemas() {
+        var cuerpo = document.getElementById("slide")
+        cuerpo.src = "https://ikeclub.arventcloud.com/index"
     }
 </script>
 

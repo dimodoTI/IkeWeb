@@ -139,15 +139,17 @@ export class appMenu extends connect(store, MENU, TOGGLE)(LitElement) {
             <div class="boton" @click="${this.selectMenu}" .value="${"PRODUCTOS"}" .autoClose="${false}">
                 <div>Contratá tu Plan</div>
             </div>
-            <div class="boton" @click="${this.selectMenu}" .value="${"ATENCION_CLIENTE"}" .autoClose="${true}">
-                
+            <div class="boton" @click="${this.selectMenu}" .value="${"IKEMAS"}" .autoClose="${true}">               
+                <div>Iké+ Beneficios</div>
+            </div>
+            <div class="boton" @click="${this.selectMenu}" .value="${"ATENCION_CLIENTE"}" .autoClose="${true}">               
                 <div>Atención al Cliente</div>
             </div>
             <div class="boton"  @click="${this.selectMenu}" .value="${"SUMARTE"}" .autoClose="${false}" >
                 <div>¿Querés sumarte al equipo Iké?</div>
             </div>
             <div class="boton" @click="${this.selectMenu}" .value="${"FORMULARIOINFO"}"  .autoClose="${true}">
-                <div>¿No sos cliente? Contactanos</div>
+                <div>Contactanos</div>
             </div>
 
 
@@ -170,6 +172,7 @@ export class appMenu extends connect(store, MENU, TOGGLE)(LitElement) {
                 path: '/' + e.currentTarget.value,
 
             }
+
         });
         window.estado = {
             option: e.currentTarget.value,
@@ -190,7 +193,7 @@ export class appMenu extends connect(store, MENU, TOGGLE)(LitElement) {
     }
 
     presentacion(e) {
-        window.open("http://ikeargentina.com.ar/pruebaweb/Presentacion.pdf", "_self")
+        window.open("https://ikeargentina.com.ar/pruebaweb/Presentacion.pdf", "_self")
         this.selectMenu(e)
         this.open = false
 

@@ -115,7 +115,38 @@ export class redesSociales extends connect(store, MEDIA_SIZE)(LitElement) {
         }
 
 
+        .insta{
+            position:relative;
+            display:grid;
+            width:2.3rem;
+            height:2.3rem;
+            border-radius: 50%;
+            border: 1px solid #ffffff;
+            background-color: transparent;
+            align-items:center;
+            justify-items:center;
+            fill:white;
+            stroke:white;
+            cursor:pointer;
+            box-shadow:var(--shadow-elevation-4-bosx);
+            z-index:var(--shadow-elevation-4-z);
+        }
 
+        .insta svg{
+            height:1.5rem;
+            width:1.5em;
+        }
+
+        .insta[media-size="small"] svg{
+            height:1rem;
+            width:1rem;
+        }
+
+        
+
+        .insta:hover{
+            border:1px solid var(--color-destacado);
+        }
 
         `
     }
@@ -125,7 +156,7 @@ export class redesSociales extends connect(store, MEDIA_SIZE)(LitElement) {
         return html `
         <div class="boton botonete" media-size="${this.mediaSize}" @click="${this.linkedin}">${LINKE}</div>
         <div class="boton botonete" media-size="${this.mediaSize}" @click="${this.facebook}">${FACE}</div>
-        <div class="boton botonete" media-size="${this.mediaSize}" @click="${this.instagram}">${INSTA}</div>
+        <div class="boton insta"  media-size="${this.mediaSize}" @click="${this.instagram}">${INSTA}</div>
         <div class="boton botonete" media-size="${this.mediaSize}" @click="${this.twiter}">${TWIT}</div>
         <div class="boton botonete" media-size="${this.mediaSize}" @click="${this.selectMenu}" .value="${"FORMULARIOINFO"}">${EMAIL}</div>
         <div class="boton botonete" media-size="${this.mediaSize}" @click="${this.whatsapp}">${WHATSAPP}</div>

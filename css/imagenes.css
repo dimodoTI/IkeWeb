@@ -41,5 +41,6 @@ html {
     --fondo-formulario: url('../assets/images/formulario.jpg');
     --fondo-formulariophone: url('../assets/images/formulariophone.jpg');
 
-
+    --fondo-ikemax: url('../assets/images/IkeMax.jpg');
+    --fondo-ikemaxphone: url('../assets/images/ikemax.jpg');
 }
