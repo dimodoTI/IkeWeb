@@ -107,10 +107,10 @@ export class submenuSumarte extends connect(store, OPCION_SELECCIONADA)(LitEleme
                 <div>${PRESTADOR}</div>
                 <div class="subop"  media-size="${this.mediaSize}">Soy Prestador</div>
             </div>
-            <div class="boton vertical" @click="${this.productor}" .value="${"PRODUCTOR"}" media-size="${this.mediaSize}">
+ <!--            <div class="boton vertical" @click="${this.productor}" .value="${"PRODUCTOR"}" media-size="${this.mediaSize}">
             <div>${PRODUCTOR}</div>
                 <div class="subop"  media-size="${this.mediaSize}">Soy Productor</div>
-            </div>
+            </div> -->
         
         `
     }
@@ -147,12 +147,12 @@ export class submenuSumarte extends connect(store, OPCION_SELECCIONADA)(LitEleme
 
 
 
-    productor(e) {
-        window.open("http://productoresike.com.ar/", "")
-        this.selectMenu(e)
-        this.open = false
-        store.dispatch(toggleMenu())
-    }
+    /*     productor(e) {
+            window.open("https://productoresike.com.ar/", "")
+            this.selectMenu(e)
+            this.open = false
+            store.dispatch(toggleMenu())
+        } */
 
 
 
