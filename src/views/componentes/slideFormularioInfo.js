@@ -38,6 +38,7 @@ import {
 
 
 
+
 export class slideFormularioInfo extends connect(store)(LitElement) {
     constructor() {
         super();
@@ -236,7 +237,20 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
             "id_tipo_comunicacion": 1
         }
 
-        fetch("https://ikeargentina.com.ar/ikeapirestful/api/sendemail", {
+
+        let dominio = window.location.href.toUpperCase()
+
+        if (dominio.indexOf("WWW") > -1) {
+            dominio = "https://www.ikeargentina.com.ar/ikeapirestful/api/sendemail"
+
+
+        } else {
+            dominio = "https://ikeargentina.com.ar/ikeapirestful/api/sendemail"
+        }
+
+
+
+        fetch(dominio, {
             method: "POST",
             mode: 'cors',
             headers: {
@@ -272,6 +286,7 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
 
             store.dispatch(selectMenu("ATENCION_CLIENTE"))
         });
+
 
 
         /*  fetch("https://servicio-email.herokuapp.com/ike-mail", {
