@@ -258,14 +258,14 @@ export class appContactosnuevos extends connect(store)(LitElement) {
                 </div>
             </div>
 
-            <div class="celda"  @click="${this.redireccionFac}" .value="${"FACTURASINFO"}" media-size="${this.mediaSize}">
+ <!--            <div class="celda"  @click="${this.redireccionFac}" .value="${"FACTURASINFO"}" media-size="${this.mediaSize}">
                 <div class="icono2">
                     ${FACTURAWHITE}
                 </div>
                 <div class="question" media-size="${this.mediaSize}">
                     DESCARGAR <BR>MI FACTURA
                 </div>
-            </div>
+            </div> -->
         </div>   
         
     
@@ -341,7 +341,7 @@ export class appContactosnuevos extends connect(store)(LitElement) {
     }
 
     redireccionFac() {
-        window.open("http://mifactura.ikeasistencia.com")
+        //window.open("https://mifactura.ikeasistencia.com")
     }
 
     stateChanged(state, name) {

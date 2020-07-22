@@ -219,14 +219,24 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
         let telefono = this.shadowRoot.querySelector("#telefono").value
         let comentario = this.shadowRoot.querySelector("#comentario").value
 
+        /*         let cuerpo = {
+                    nombre: nombre,
+                    email: email,
+                    telefono: telefono,
+                    comentario: comentario
+                } */
+
         let cuerpo = {
-            nombre: nombre,
-            email: email,
-            telefono: telefono,
-            comentario: comentario
+            "token": "eyJ0eXAiUE8Kl_V8KroQTU1ODEuNDI2OTkzIiwidmFsaWQiOiIyMDIwLTA2LTMwIDE4OjA5OjI0In0._ljVd3FJYFdRnSwdfMeohiJXybn",
+            "email_destinatario": email,
+            "nombre_destinatario": nombre,
+            "parametro_1": telefono,
+            "parametro_2": "Ike Argentina",
+            "cuerpo": comentario,
+            "id_tipo_comunicacion": 1
         }
 
-        fetch("https://servicio-email.herokuapp.com/ike-mail", {
+        fetch("https://ikeargentina.com.ar/ikeapirestful/api/sendemail", {
             method: "POST",
             mode: 'cors',
             headers: {
@@ -262,6 +272,44 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
 
             store.dispatch(selectMenu("ATENCION_CLIENTE"))
         });
+
+
+        /*  fetch("https://servicio-email.herokuapp.com/ike-mail", {
+             method: "POST",
+             mode: 'cors',
+             headers: {
+                 'Content-Type': 'application/json'
+             },
+             body: JSON.stringify(cuerpo)
+         }).then(
+             (response) => {
+                 //console.log(response);
+
+                 alert("Su consulta ha sido enviada y será contactado por un operador IKE")
+                 let nombre = this.shadowRoot.querySelector("#nombre")
+                 let email = this.shadowRoot.querySelector("#mail")
+                 let telefono = this.shadowRoot.querySelector("#telefono")
+                 let comentario = this.shadowRoot.querySelector("#comentario")
+                 nombre.value = ""
+                 email.value = ""
+                 telefono.value = ""
+                 comentario.value = ""
+
+                 store.dispatch(selectMenu("ATENCION_CLIENTE"))
+             }
+         ).catch((response) => {
+             alert("Su email no pudo ser enviado, intente mas tarde")
+             let nombre = this.shadowRoot.querySelector("#nombre")
+             let email = this.shadowRoot.querySelector("#mail")
+             let telefono = this.shadowRoot.querySelector("#telefono")
+             let comentario = this.shadowRoot.querySelector("#comentario")
+             nombre.value = ""
+             email.value = ""
+             telefono.value = ""
+             comentario.value = ""
+
+             store.dispatch(selectMenu("ATENCION_CLIENTE"))
+         }); */
     }
 
 

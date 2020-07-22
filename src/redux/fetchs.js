@@ -4,7 +4,7 @@ import {
 } from "@brunomon/odata-fetch-factory"
 
 /* let app = "DigitalizacionExpedientes"
-let dominio = "http://localhost/" + app
+let dominio = "https://localhost/" + app
 if (process.env.NODE_ENV == 'production') {
   dominio = window.location.protocol + "//" + window.location.hostname + "/Intranet/" + app
 } */
