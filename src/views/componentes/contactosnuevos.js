@@ -189,7 +189,6 @@ export class appContactosnuevos extends connect(store)(LitElement) {
             fill:white;
         }
 
-
         .question{
             color:white;
             display:grid;
@@ -341,7 +340,8 @@ export class appContactosnuevos extends connect(store)(LitElement) {
     }
 
     redireccionFac() {
-        window.open("http://mifactura.ikeasistencia.com")
+
+        window.open("https://mifactura.ikeasistencia.com")
     }
 
     stateChanged(state, name) {

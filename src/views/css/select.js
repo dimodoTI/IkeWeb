@@ -1,13 +1,13 @@
 import {
-    css
+  css
 } from "lit-element"
 
 export const select = css `
 select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
+    -ms-appearance: auto;
+    appearance: auto;
     outline: 0;
     box-shadow: none;
     border:none;
@@ -26,12 +26,12 @@ select {
     display: flex;
     line-height: 3;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: 0px;
   }
   select {
     padding-top:1rem;
     padding-left:.5rem;
-    color: #fff;
+    color: black;
     cursor: pointer;
   }
   option{
@@ -55,7 +55,7 @@ select {
     -webkit-transition: .25s all ease;
     -o-transition: .25s all ease;
     transition: .25s all ease;
-    color:white
+    color:black
   }
   
   .select:hover::after {

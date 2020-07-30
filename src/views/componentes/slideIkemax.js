@@ -36,7 +36,7 @@ export class slideIkemax extends connect(store, OPCION_SELECCIONADA)(LitElement)
         ${carteles}
         :host{
             display:grid;
-            background-image: var(--fondo-ikemax);
+            background-image: var(--fondo-ikeMax);
             background-size: 100vw 100vh;
             background-position: center;
             background-size: cover;
@@ -45,7 +45,7 @@ export class slideIkemax extends connect(store, OPCION_SELECCIONADA)(LitElement)
         }
 
         :host([media-size="small"]){         
-            background-image:var(--fondo-ikemaxphone);
+            background-image:var(--fondo-ikeMaxphone);
             background-repeat:no-repeat;
             background-position:center; 
             background-size:cover;       
