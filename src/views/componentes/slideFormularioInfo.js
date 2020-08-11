@@ -108,7 +108,8 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
             display:grid;
             width:27rem;
             background-color:white;
-            height:3rem
+            height:3rem;
+            font-size:1rem;
         }        
 
         .botonenviar{
@@ -122,13 +123,13 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
 
         }
         textarea::placeholder{
-            font-size:1.2rem;
+            font-size:1rem;
             color:var(--color-boton);
-            font-family: "Avenir, sans-serif";
+            font-family: 'Avenir', sans-serif;
         }
         textarea{
             font-family: 'Avenir', sans-serif;
-            font-size:1.1rem
+            font-size:1rem
         }
         `
     }
@@ -150,7 +151,7 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
                     <option value=7>Otro</option>
                 </select>
                 <nano-input class="texto" type="text" label="Email" id="mail"></nano-input>
-                <nano-input class="texto" type="text" label="Telefono" id="telefono"></nano-input>
+                <nano-input class="texto" type="text" label="Teléfono" id="telefono"></nano-input>
                 <div><textarea  style="width:26.7rem;" rows="5"  id="comentario" type="text" placeholder="Comentarios"></textarea></div>
                 <div class="botonenviar" id="boton" @click="${this.enviar}" .presionado=${false}>ENVIAR</div>
             </div>
@@ -305,7 +306,7 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
             (response) => {
                 //console.log(response);
 
-                alert("Su consulta ha sido enviada y será contactado por un operador Iké Argentina dentro de las próximas 72 hs")
+                alert("Su consulta ha sido enviada y será contactado por un operador Iké Argentina dentro de las próximas 72 hs hábiles")
                 let nombre = this.shadowRoot.querySelector("#nombre")
                 let email = this.shadowRoot.querySelector("#mail")
                 let telefono = this.shadowRoot.querySelector("#telefono")
