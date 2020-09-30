@@ -87,12 +87,7 @@ export class slideVial extends connect(store, OPCION_SELECCIONADA)(LitElement) {
 
 
     conocerMas() {
-        var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-        if (es_firefox) {
-            window.open("https://web.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
-        } else {
-            window.open("https://api.whatsapp.com/send?phone=5491134427999&text=&source=&data=")
-        }
+        window.open("https://www.ikeargentina.com.ar/planvial/")
     }
 
     masInfo(e) {

@@ -120,16 +120,21 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
             justify-items:center;
             height:3rem;
             cursor:pointer
-
         }
+
         textarea::placeholder{
             font-size:1rem;
-            color:var(--color-boton);
-            font-family: 'Avenir', sans-serif;
+            
+            
+            background-color:white;
         }
+
         textarea{
-            font-family: 'Avenir', sans-serif;
-            font-size:1rem
+           
+            font-size:1rem;
+            padding-left:.5rem
+        
+
         }
         `
     }
@@ -140,7 +145,7 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
                 <div class="cabecera">ENVIANOS<BR>TU CONSULTA</div>
                 <div class="subcabecera"  media-size="${this.mediaSize}">Por favor, completá tus datos con tus comentarios y te responderemos a la brevedad</div>
                 <nano-input class="texto" type="text" label="Nombre" id="nombre" value=""></nano-input>
-                <select class="texto" id="motivo" style="color:var(--color-boton)" @change="${this.cambiar}">
+                <select class="texto" id="motivo" style="color:#ff6c0c;padding-top:.3rem;padding-left:.3rem" @change="${this.cambiar}">
                     <option value=0 disabled selected>Motivo de Consulta</option>
                     <option value=1 >Adquirir producto</option>
                     <option value=2>Cambiar mis datos personales</option>
@@ -152,7 +157,7 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
                 </select>
                 <nano-input class="texto" type="text" label="Email" id="mail"></nano-input>
                 <nano-input class="texto" type="text" label="Teléfono" id="telefono"></nano-input>
-                <div><textarea  style="width:26.7rem;" rows="5"  id="comentario" type="text" placeholder="Comentarios"></textarea></div>
+                <div><textarea  style="width:26.35rem;" rows="5"  id="comentario" type="text" placeholder="Comentarios"></textarea></div>
                 <div class="botonenviar" id="boton" @click="${this.enviar}" .presionado=${false}>ENVIAR</div>
             </div>
                

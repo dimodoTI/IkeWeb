@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Iké Argentina - Control Mail</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0" />
+
+</head>
+
+<body style="width:100%;height: 100%; background-size: 100vw 100vh;margin: 0;padding: 0;">
+
+
+    <style>
+        body {
+            font-family: 'Avenir', sans-serif;
+            overflow: hidden;
+        }
+
+        @font-face {
+            font-family: 'Avenir', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            src: url('../assets/fonts/AvenirLTStd-Roman.otf') format('otf');
+        }
+
+        #cuerpo {
+
+            height: 100vh;
+            width: 80vw;
+            display: grid;
+            grid-template-rows: 10% 90%;
+            margin-left: 3rem;
+            margin-top: 1rem;
+
+        }
+
+        #titulo {
+            display: grid;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-family: 'Avenir', sans-serif;
+            color: #ff6c0c;
+        }
+
+        .texto {
+            display: grid;
+
+            background-color: white;
+            height: 1rem;
+            font-size: 1rem;
+            color: #ff6c0c
+        }
+
+        #parametro {
+            display: grid;
+            grid-template-rows: 30% 52% 5%;
+            grid-gap: .3rem;
+            margin: 1.2rem;
+        }
+
+        #lista {
+            display: grid;
+            grid-template-rows: 10% 90%;
+            border: 1px solid blue;
+            border-radius: .3rem
+        }
+
+        #tituloLista {
+            font-size: 1rem;
+            align-self: center;
+            border-bottom: 1px solid blue
+        }
+
+        .lineas {
+            display: grid;
+            overflow-y: auto;
+            grid-gap: 0.3rem;
+            align-content: start;
+        }
+
+        .botones {
+            border-radius: .4rem .4rem .4rem .4rem;
+            justify-self: center;
+            color: white;
+            background-color: #ff6c0c;
+            cursor: pointer;
+        }
+
+
+        .botones[disabled] {
+
+            color: gray;
+            background-color: lightgray;
+            cursor: pointer;
+
+        }
+
+        label {
+            font-family: 'Avenir', sans-serif;
+            color: black;
+            font-size: 1rem
+        }
+
+        .card {
+            font-family: 'Avenir', sans-serif;
+            display: grid;
+            position: relative;
+            height: 10vh;
+            width: 100%;
+            background-color: white;
+            grid-template-columns: 30vh auto;
+            grid-gap: .1vh;
+            border-radius: .4rem;
+            align-items: center;
+            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+            padding: .2vh 0 .2vh 0;
+            justify-self: center;
+            font-size: .8rem;
+        }
+    </style>
+
+
+    <div id="cuerpo">
+
+
+        <div id="titulo">
+            Iké - Control Mail Prueba
+        </div>
+
+        <div id="parametro">
+            <div style="display:grid; grid-template-rows: 80% 20%;">
+                <div style="display:grid; grid-template-columns: 35% 65%;">
+                    <label>Nombre</label>
+                    <input class="texto" type="text" id="nombre" value="Prueba de Mail"
+                        placeholder="Nombre de Usuario"></input>
+                    <label>Motivo</label>
+                    <input class="texto" id="motivo" type="text" value="Probar API Mail" placeholder="Motivo"></input>
+                    <label>email cliente</label>
+                    <input class="texto" type="email" id="mail" placeholder="Dirección de Mail"></input>
+                    <label>Comentarios</label>
+                    <input class="texto" type="text" id="comentarios" placeholder="Comentarios"
+                        value="Prueba de Mail"></input>
+
+                    <label>Tiempo en segundos:</label>
+                    <input type="number" class="texto" id="tiempo" placeholder="Ingrese tiempo en segundos" value=120
+                        min="10" max="86400" />
+                </div>
+                <div style="display:grid;grid-template-columns: 50% 50%; padding-top:.3rem">
+                    <button class="botones" id="comienzo" value="Comenzar" onclick="comenzar(this)">Comenzar</button>
+                    <button class="botones" id="final" value="Finalizar" disabled
+                        onclick="terminar()">Finalizar</button>
+                </div>
+            </div>
+            <div id="lista">
+                <div id="tituloLista">Resultados</div>
+                <div id="lineas" class="lineas reverse"> </div>
+            </div>
+            <button id="borrar" class="botones" value="Borrar Elementos" onclick="borrarLineas()">Borrar Lista</button>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+</body>
+<script type="text/javascript">
+    var intervalo = 0
+    var comienzo = document.getElementById("comienzo")
+    var final = document.getElementById("final")
+    var borrar = document.getElementById("borrar")
+
+    function borrarLineas() {
+        var lineas = document.getElementById("lineas")
+        while (lineas.firstChild) {
+            lineas.removeChild(lineas.firstChild);
+        }
+    }
+
+    function comenzar(e) {
+
+        let errores = validar()
+
+        if (!errores) {
+            var tiempo = document.getElementById("tiempo")
+            comienzo.disabled = true
+            final.disabled = false;
+            borrar.disabled = true
+            intervalo = setInterval(sendMail, tiempo.value * 1000);
+        } else {
+            alert("ERROR :\n\n" + errores.reduce((text, msg) => {
+                return text + "• " + msg.campo + ": " + msg.mensaje + "\n"
+            }, ""))
+        }
+
+    }
+
+    function validar() {
+        const nombre = document.getElementById("nombre").value;
+        const motivo = document.getElementById("motivo").value;
+        const email = document.getElementById("mail").value;
+        const comentarios = document.getElementById("comentarios").value;
+        const tiempo = document.getElementById("tiempo").value;
+
+        let errores = []
+
+        if (nombre == "") {
+            errores.push({
+                campo: "Nombre",
+                mensaje: "No puede ser Vacio"
+
+            })
+        }
+
+        if (email == "" || !this.validaMail(email)) {
+            errores.push({
+                campo: "Mail",
+                mensaje: "Mail Incorrecto"
+
+            })
+        }
+
+        if (motivo == "") {
+            errores.push({
+                campo: "Motivo",
+                mensaje: "No puede ser Vacio"
+
+            })
+        }
+
+        if (tiempo < 10 || tiempo > 86400) {
+            errores.push({
+                campo: "Tiempo",
+                mensaje: "El tiempo debe estar entre 10s y 86400s (24hs.)"
+
+            })
+        }
+
+        return errores.length == 0 ? null : errores;
+
+    }
+
+    function validaMail(email) {
+        var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        return regex.test(email) ? true : false;
+    }
+
+    /*     function controlar() {
+            sendMail()
+        } */
+
+    function terminar() {
+        clearInterval(intervalo);
+        comienzo.disabled = false
+        final.disabled = true;
+        borrar.disabled = false
+    }
+
+
+
+
+    function sendMail() {
+
+
+        let nombre = document.getElementById("nombre").value
+        let email = document.getElementById("mail").value
+        let telefono = "12345678"
+        let motivo = document.getElementById("motivo").value
+        let comentario = "Motivo: " + motivo + " " + "Comentario: " + document.getElementById("comentarios").value
+
+        let cuerpo = {
+            "token": "eyJ0eXAiUE8Kl_V8KroQTU1ODEuNDI2OTkzIiwidmFsaWQiOiIyMDIwLTA2LTMwIDE4OjA5OjI0In0._ljVd3FJYFdRnSwdfMeohiJXybn",
+            "email_destinatario": email,
+            "nombre_destinatario": nombre,
+            "parametro_1": telefono,
+            "parametro_2": comentario,
+            "cuerpo": comentario,
+            "id_tipo_comunicacion": 1
+        }
+
+
+
+        /*         var lista = document.getElementById("lineas")
+                d = new Date();
+                const dia = d.getDate().toString();
+                const mes = (d.getMonth() + 1).toString()
+                const ano = d.getFullYear().toString()
+                const hora = d.getHours().toString()
+                const minutos = d.getMinutes().toString()
+                const segundos = d.getSeconds().toString()
+                const fecha = dia + "/" + mes + "/" + ano + " " + hora + ":" + minutos + ":" + segundos
+
+                let parentElement = document.getElementById('lineas')
+                let theFirstChild = parentElement.firstChild
+                let newElement = document.createElement("div")
+                newElement.className = "card"
+                newElement.innerHTML = "<div>Fecha: " + fecha + "</div><div>Envio de Mail OK</div></div>"
+                parentElement.insertBefore(newElement, theFirstChild)
+
+                return true */
+
+
+
+
+        let dominio = window.location.href.toUpperCase()
+
+        if (dominio.indexOf("WWW") > -1) {
+            dominio = "https://www.ikeargentina.com.ar/ikeapirestful/api/sendemail"
+
+
+        } else {
+            dominio = "https://ikeargentina.com.ar/ikeapirestful/api/sendemail"
+        }
+        fetch(dominio, {
+            method: "POST",
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(cuerpo)
+        }).then(
+            (response) => {
+
+                var lista = document.getElementById("lineas")
+                d = new Date();
+                const dia = d.getDate().toString();
+                const mes = (d.getMonth() + 1).toString()
+                const ano = d.getFullYear().toString()
+                const hora = d.getHours().toString()
+                const minutos = d.getMinutes().toString()
+                const segundos = d.getSeconds().toString()
+                const fecha = dia + "/" + mes + "/" + ano + " " + hora + ":" + minutos + ":" + segundos
+
+                let parentElement = document.getElementById('lineas')
+                let theFirstChild = parentElement.firstChild
+                let newElement = document.createElement("div")
+                newElement.className = "card"
+                newElement.innerHTML = "<div>Fecha: " + fecha + "</div><div>Envio de Mail OK</div></div>"
+                parentElement.insertBefore(newElement, theFirstChild)
+                //lista.innerHTML = lista.innerHTML + "<Div class='card' id='linea'><div>" + "Fecha: " + fecha + "</div><div> " + "Envio de Mail OK" + "</div></div>"
+            }
+        ).catch((response) => {
+            var lista = document.getElementById("lineas")
+            d = new Date();
+            const dia = d.getDate().toString();
+            const mes = (d.getMonth() + 1).toString()
+            const ano = d.getFullYear().toString()
+            const hora = d.getHours().toString()
+            const minutos = d.getMinutes().toString()
+            const segundos = d.getSeconds().toString()
+            const fecha = dia + "/" + mes + "/" + ano + " " + hora + ":" + minutos + ":" + segundos
+            //lista.innerHTML = lista.innerHTML + "<Div class='card' id='linea'><div>" + "Fecha: " + fecha + "</div><div> " + "Envio de Mail Erroneo" + "</div></div>"
+            let parentElement = document.getElementById('lineas')
+            let theFirstChild = parentElement.firstChild
+            let newElement = document.createElement("div")
+            newElement.className = "card"
+            newElement.innerHTML = "<div>" + "Fecha: " + fecha + "</div><div>Envio de Mail Erróneo</div></div>"
+            parentElement.insertBefore(newElement, theFirstChild)
+        });
+
+
+    }
+</script>
+
+</html>
