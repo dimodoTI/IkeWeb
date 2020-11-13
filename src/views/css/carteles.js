@@ -132,7 +132,7 @@ export const carteles = css `
 
         .logoBottom[media-size="small"]{
             position: absolute;
-            bottom: 1.3rem;
+            bottom: 2.3rem;
             right: 1rem;
         }
 

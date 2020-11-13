@@ -30,6 +30,10 @@ import {
     redesSociales
 } from "../componentes/redessociales"
 
+import {linkLegales} from "../componentes/legales"
+
+
+
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
 const MEDIA_SIZE = "ui.media.timeStamp"
 export class slideInstitucional extends connect(store, OPCION_SELECCIONADA, MEDIA_SIZE)(LitElement) {
@@ -50,6 +54,10 @@ export class slideInstitucional extends connect(store, OPCION_SELECCIONADA, MEDI
             background-size: cover;
             height:100%;
             width:100%;
+            overflow-y:auto;
+            
+
+
         }
 
         :host([media-size="small"]){
@@ -63,6 +71,15 @@ export class slideInstitucional extends connect(store, OPCION_SELECCIONADA, MEDI
         .leyenda[media-size="small"]{
             width:90%;
             font-size:1.05rem
+
+        }
+        .legales{
+            position:absolute;
+            bottom: 4rem;
+            left:10rem;
+            color:white;
+            font-size:.6rem;
+            cursor: pointer
 
         }
         `
@@ -83,10 +100,17 @@ export class slideInstitucional extends connect(store, OPCION_SELECCIONADA, MEDI
             </div>
             <div class="logoBottom" media-size="${this.mediaSize}">
                     ${IKEASISTENCIA}
-                </div>   
-                
-                <redes-sociales></redes-sociales>
+            </div>   
+            <redes-sociales></redes-sociales>
+            
+            <link-legales id="legales"></link-legales>
+               
         `
+    }
+
+    legales(){
+        const legales = this.shadowRoot.querySelector("#legales")
+        legales.style.visibility="visible"
     }
 
     masInfo() {

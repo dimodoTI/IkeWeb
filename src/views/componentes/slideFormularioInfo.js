@@ -74,7 +74,7 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
         .formulario{
             display:grid;
              grid-auto-flow:row;
-             grid-template-rows: 1fr .3fr auto  auto auto auto auto 2fr;
+             grid-template-rows: 1fr .3fr auto  auto auto auto auto auto 2fr;
              padding-left:3rem;
              grid-gap:.3rem;
 
@@ -108,7 +108,7 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
             display:grid;
             width:27rem;
             background-color:white;
-            height:3rem;
+            height:2rem;
             font-size:1rem;
         }        
 
@@ -118,23 +118,32 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
             background-color:var(--color-boton);
             align-items:center;
             justify-items:center;
-            height:3rem;
+            height:2.7rem;
             cursor:pointer
         }
 
         textarea::placeholder{
             font-size:1rem;
-            
-            
+            color: var(--color-boton);
+            font-family:inherit;
             background-color:white;
         }
 
         textarea{
-           
+            font-family: inherit;
             font-size:1rem;
             padding-left:.5rem
-        
+        }
 
+        .texto input::-webkit-outer-spin-button,
+        .texto input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+/* Firefox */
+        input[type=number] {
+        -moz-appearance: textfield;
         }
         `
     }
@@ -145,7 +154,7 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
                 <div class="cabecera">ENVIANOS<BR>TU CONSULTA</div>
                 <div class="subcabecera"  media-size="${this.mediaSize}">Por favor, completá tus datos con tus comentarios y te responderemos a la brevedad</div>
                 <nano-input class="texto" type="text" label="Nombre" id="nombre" value=""></nano-input>
-                <select class="texto" id="motivo" style="color:#ff6c0c;padding-top:.3rem;padding-left:.3rem" @change="${this.cambiar}">
+                <select class="texto" id="motivo" style="color:var(--color-boton);padding-top:.3rem;padding-left:.3rem" @change="${this.cambiar}">
                     <option value=0 disabled selected>Motivo de Consulta</option>
                     <option value=1 >Adquirir producto</option>
                     <option value=2>Cambiar mis datos personales</option>
@@ -157,6 +166,7 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
                 </select>
                 <nano-input class="texto" type="text" label="Email" id="mail"></nano-input>
                 <nano-input class="texto" type="text" label="Teléfono" id="telefono"></nano-input>
+                <nano-input class= "texto" type="number" label="DNI" id="dni"></nano-input>
                 <div><textarea  style="width:26.35rem;" rows="5"  id="comentario" type="text" placeholder="Comentarios"></textarea></div>
                 <div class="botonenviar" id="boton" @click="${this.enviar}" .presionado=${false}>ENVIAR</div>
             </div>
@@ -209,6 +219,7 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
         let telefono = this.shadowRoot.querySelector("#telefono").value
         let comentario = this.shadowRoot.querySelector("#comentario").value
         let motivo = this.shadowRoot.querySelector("#motivo").value
+        let dni = this.shadowRoot.querySelector("#dni").value
 
         if (motivo == 0) {
             errores.push({
@@ -242,6 +253,11 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
             })
         }
 
+        if (motivo!=1 && dni==0 ){
+            errores.push({campo:"DNI",
+            mensaje:"No puede estar vacio"});
+        }
+
         if (motivo == 7 && comentario == "") {
             errores.push({
                 campo: "Comentario",
@@ -268,6 +284,7 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
         let email = this.shadowRoot.querySelector("#mail").value
         let telefono = this.shadowRoot.querySelector("#telefono").value
         let motivo = this.shadowRoot.querySelector("#motivo")
+        let dni = this.shadowRoot.querySelector("#dni").value
         let comentario = "Motivo: " + motivo.options[motivo.selectedIndex].text + " " + "Comentario: " + this.shadowRoot.querySelector("#comentario").value
 
         /*         let cuerpo = {
@@ -282,7 +299,7 @@ export class slideFormularioInfo extends connect(store)(LitElement) {
             "email_destinatario": email,
             "nombre_destinatario": nombre,
             "parametro_1": telefono,
-            "parametro_2": comentario,
+            "parametro_2": dni,
             "cuerpo": comentario,
             "id_tipo_comunicacion": 1
         }

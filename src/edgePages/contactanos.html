@@ -53,8 +53,19 @@
         </div>
         <div>
             <div class="divTexto"><input type="text" id="nombre" class="texto" placeholder="Nombre" value=""></div>
+            <select class="texto" id="motivo" style="color:var(--color-boton);padding-top:.3rem;padding-left:.3rem" @change="${this.cambiar}">
+                <option value=0 disabled selected>Motivo de Consulta</option>
+                <option value=1 >Adquirir producto</option>
+                <option value=2>Cambiar mis datos personales</option>
+                <option value=3>Cambiar el medio de cobro</option>
+                <option value=4>Consultar mi cobertura</option>
+                <option value=5>Dudas sobre el cobro</option>
+                <option value=6>Reclamo</option>
+                <option value=7>Otro</option>
+            </select>
             <div class="divTexto"><input type="text" id="mail" class="texto" placeholder="Email" value=""></div>
             <div class="divTexto"><input type="text" id="telefono" class="texto" placeholder="Telefono" value=""></div>
+            <div class="divTexto"><input type="number" id="dni" class="texto" placeholder="DNI" value=""></div>
             <div class="divTexto"><textarea style="width:80%;" rows="5" id="comentario" type="text"
                     placeholder="Comentarios" value=""></textarea></div>
             <div class="botonenviar" id="boton" onclick="enviar()">ENVIAR</div>
@@ -95,10 +106,20 @@
 
     function validarCampos() {
         const errores = []
-        let nombre = document.getElementById("nombre").value
-        let email = document.getElementById("mail").value
-        let telefono = document.getElementById("telefono").value
-        let comentario = document.getElementById("comentario").value
+        let nombre = this.shadowRoot.querySelector("#nombre").value
+        let email = this.shadowRoot.querySelector("#mail").value
+        let telefono = this.shadowRoot.querySelector("#telefono").value
+        let comentario = this.shadowRoot.querySelector("#comentario").value
+        let motivo = this.shadowRoot.querySelector("#motivo").value
+        let dni = this.shadowRoot.querySelector("#dni").value
+
+        if (motivo == 0) {
+            errores.push({
+                campo: "Motivo",
+                mensaje: "Debe seleccionar una opción"
+
+            })
+        }
 
         if (nombre == "") {
             errores.push({
@@ -108,7 +129,7 @@
             })
         }
 
-        if (email == "" || !validaMail(email)) {
+        if (email == "" || !this.validaMail(email)) {
             errores.push({
                 campo: "Mail",
                 mensaje: "Mail Incorrecto"
@@ -120,6 +141,19 @@
             errores.push({
                 campo: "Telefono",
                 mensaje: "No puede ser Vacio"
+
+            })
+        }
+
+        if (motivo!=1 && dni==0 ){
+            errores.push({campo:"DNI",
+            mensaje:"No puede estar vacio"});
+        }
+
+        if (motivo == 7 && comentario == "") {
+            errores.push({
+                campo: "Comentario",
+                mensaje: "Seleccionando como Motivo Otros, debe completar el campo Comentarios"
 
             })
         }
@@ -142,13 +176,70 @@
         let email = document.getElementById("mail").value
         let telefono = document.getElementById("telefono").value
         let comentario = document.getElementById("comentario").value
-
+        let motivo = document.getElementById("motivo")
+        let dni = document.getElementById("#dni").value
         let cuerpo = {
-            nombre: nombre,
-            email: email,
-            telefono: telefono,
-            comentario: comentario
+            "token": "eyJ0eXAiUE8Kl_V8KroQTU1ODEuNDI2OTkzIiwidmFsaWQiOiIyMDIwLTA2LTMwIDE4OjA5OjI0In0._ljVd3FJYFdRnSwdfMeohiJXybn",
+            "email_destinatario": email,
+            "nombre_destinatario": nombre,
+            "parametro_1": telefono,
+            "parametro_2": dni,
+            "cuerpo": comentario,
+            "id_tipo_comunicacion": 1
         }
+        let dominio = window.location.href.toUpperCase()
+
+        if (dominio.indexOf("WWW") > -1) {
+            dominio = "https://www.ikeargentina.com.ar/ikeapirestful/api/sendemail"
+
+
+        } else {
+            dominio = "https://ikeargentina.com.ar/ikeapirestful/api/sendemail"
+        }
+
+        body = JSON.stringify(cuerpo)
+        
+        var request = new XMLHttpRequest();
+        
+        request.onreadystatechange = function () {
+           if (this.readyState == 4 && this.status == 200) {
+               var reg = /'/g
+               
+               var respose = JSON.parse(request.responseText)
+               if (response) {
+
+                alert("Su consulta ha sido enviada y será contactado por un operador Iké Argentina dentro de las próximas 72 hs hábiles")
+                let nombre = this.shadowRoot.querySelector("#nombre")
+                let email = this.shadowRoot.querySelector("#mail")
+                let telefono = this.shadowRoot.querySelector("#telefono")
+                let comentario = this.shadowRoot.querySelector("#comentario")
+                let motivo = this.shadowRoot.querySelector("#motivo")
+                nombre.value = ""
+                email.value = ""
+                telefono.value = ""
+                comentario.value = ""
+                motivo.value = 0
+               }
+               else {
+                   
+                   alert("Su consulta ha sido enviada y será contactado por un operador Iké Argentina dentro de las próximas 72 hs hábiles")
+                    let nombre = this.shadowRoot.querySelector("#nombre")
+                    let email = this.shadowRoot.querySelector("#mail")
+                    let telefono = this.shadowRoot.querySelector("#telefono")
+                    let comentario = this.shadowRoot.querySelector("#comentario")
+                    let motivo = this.shadowRoot.querySelector("#motivo")
+                    nombre.value = ""
+                    email.value = ""
+                    telefono.value = ""
+                    comentario.value = ""
+                motivo.value = 0
+               }
+            }
+        };
+           
+        request.open("POST", dominio);
+        request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+        request.send(body);
 
         fetch("https://servicio-email.herokuapp.com/ike-mail", {
             method: "POST",

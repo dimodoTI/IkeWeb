@@ -51,12 +51,12 @@ export class redesSociales extends connect(store, MEDIA_SIZE)(LitElement) {
             grid-gap:.5rem;
             position:absolute;
             left:4rem;
-            bottom:4rem;
+            bottom:5.5rem;
 
         }
 
         :host([media-size="small"]){
-            bottom: 2.6rem;
+            bottom: 3.5rem;
             left: 1.5rem;
         }
 
@@ -130,6 +130,10 @@ export class redesSociales extends connect(store, MEDIA_SIZE)(LitElement) {
             cursor:pointer;
             box-shadow:var(--shadow-elevation-4-bosx);
             z-index:var(--shadow-elevation-4-z);
+        }
+        .insta[media-size="small"]{
+            width:1.8rem;
+            height:1.8rem;
         }
 
         .insta svg{

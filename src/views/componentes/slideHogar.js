@@ -42,6 +42,9 @@ export class slideHogar extends connect(store, OPCION_SELECCIONADA)(LitElement) 
             background-size: cover;
             height:100%;
             width:100%;
+            overflow-y: auto;
+            grid-template-rows: 95% auto
+            
         }
 
         :host([media-size="small"]){         
@@ -74,6 +77,9 @@ export class slideHogar extends connect(store, OPCION_SELECCIONADA)(LitElement) 
             <div class="logoBottom" media-size="${this.mediaSize}">
             ${IKEASISTENCIA}
         </div>           
+        <div style="width:100%;background-color:black;color:white">
+            Hola
+        </div>
 
                 `
     }

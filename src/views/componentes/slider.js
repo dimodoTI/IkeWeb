@@ -89,6 +89,8 @@ import {
 import {
     slideIkemax
 } from "../componentes/slideIkemax"
+
+
 const OPCION_SELECCIONADA = "ui.opcionSeleccionada.timeStamp"
 
 export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
@@ -108,6 +110,7 @@ export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
             grid-auto-flow:column;
             align-items:center;
             justify-items:center;
+        
         }
 
        
@@ -189,7 +192,7 @@ export class appSlider extends connect(store, OPCION_SELECCIONADA)(LitElement) {
         <slide-formulario-info class="slide" id="formularioinfo"  media-size="${this.mediaSize}"></slide-formulario-info>
         <slide-sumarte class="slide" id="sumarte" media-size="${this.mediaSize}"></slide-sumarte>
         <slide-ikemas class="slide" id="ikemas" media-size="${this.mediaSize}"></slide-ikemas>>
-
+       
         `
     }
 

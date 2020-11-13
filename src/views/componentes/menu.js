@@ -193,7 +193,7 @@ export class appMenu extends connect(store, MENU, TOGGLE)(LitElement) {
     }
 
     presentacion(e) {
-        window.open("https://ikeargentina.com.ar/pruebaweb/Presentacion.pdf", "_self")
+        window.open("https://www.ikeargentina.com.ar/institucional/Presentacion.pdf", "_self")
         this.selectMenu(e)
         this.open = false
 
