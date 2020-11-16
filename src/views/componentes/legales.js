@@ -43,7 +43,7 @@ export class linkLegales extends connect(store, MEDIA_SIZE)(LitElement) {
             opacity:.7;
             align-items: center;
             bottom:2.3rem;
-            padding:.5rem;
+            padding:.9rem;
             
         }
 
@@ -55,7 +55,7 @@ export class linkLegales extends connect(store, MEDIA_SIZE)(LitElement) {
 
         .link{
             color: white;
-            font-size:.5rem;
+            font-size:.7rem;
             cursor: pointer;
         }
 
