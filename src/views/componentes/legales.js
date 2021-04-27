@@ -43,7 +43,7 @@ export class linkLegales extends connect(store, MEDIA_SIZE)(LitElement) {
             opacity:.7;
             align-items: center;
             bottom:2.3rem;
-            padding:.9rem;
+            padding:.7rem;
             
         }
 
@@ -59,10 +59,31 @@ export class linkLegales extends connect(store, MEDIA_SIZE)(LitElement) {
             cursor: pointer;
         }
 
-        .link:hover{
-            color: var(--color-destacado);
+        .defensa{
+            color: white;
+            font-size:.7rem;
+
+         
         }
 
+        .defensa1 {
+            color: white;
+            font-size:.6rem;
+        }
+
+        .defensa1 span {
+            font-size: .6rem !important;
+            cursor: pointer;
+        }
+
+        .link:hover
+      {
+            color: var(--color-destacado);
+        }
+        .defensa1 span:hover{
+            color: var(--color-destacado);
+        }
+        
         .opciones{
             color: white;
             display: grid;
@@ -82,6 +103,12 @@ export class linkLegales extends connect(store, MEDIA_SIZE)(LitElement) {
         <div style="width:100%;display:grid;grid-auto-flow:column;grid-gap:1rem;margin-left: 3rem" media-size="${this.mediaSize}">  
             <div class="link" media-size="${this.mediaSize}" @click="${this.defensa}">Defensa al Consumidor</div>
             <div class="link" media-size="${this.mediaSize}" @click="${this.politica}">Política de Privacidad </div>
+            <div media-size="${this.mediaSize}">
+                <div class="defensa">
+                    Defensa de las y los Consumidores
+                </div>
+                <div class="defensa1">Para reclamos presione <span  @click="${this.defensa2}">Aquí</span></div>
+            </div>
         </div> 
         `
     }
@@ -94,7 +121,10 @@ export class linkLegales extends connect(store, MEDIA_SIZE)(LitElement) {
         }
     }
 
-
+    defensa2(){
+        window.open("https://www.argentina.gob.ar/produccion/defensadelconsumidor/formulario")
+    }
+    
     defensa() {
         window.open("https://www.consumidor.gov.ar/informacion-legal/")
     }

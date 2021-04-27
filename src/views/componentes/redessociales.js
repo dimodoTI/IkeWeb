@@ -51,7 +51,7 @@ export class redesSociales extends connect(store, MEDIA_SIZE)(LitElement) {
             grid-gap:.5rem;
             position:absolute;
             left:4rem;
-            bottom:5.5rem;
+            bottom:5.7rem;
 
         }
 
