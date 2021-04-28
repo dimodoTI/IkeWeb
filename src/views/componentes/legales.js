@@ -107,7 +107,7 @@ export class linkLegales extends connect(store, MEDIA_SIZE)(LitElement) {
                 <div class="defensa">
                     Defensa de las y los Consumidores
                 </div>
-                <div class="defensa1">Para reclamos presione <span  @click="${this.defensa2}">Aquí</span></div>
+                <div class="defensa1">Para reclamos presione <span  @click="${this.defensa2}">AQUI</span></div>
             </div>
         </div> 
         `
